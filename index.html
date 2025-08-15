@@ -142,8 +142,15 @@
             <li><button onclick="scrollToSlide('slide6')" class="nav-dot" data-slide-id="slide6" title="Real-World Example"></button></li>
             <li><button onclick="scrollToSlide('slide7')" class="nav-dot" data-slide-id="slide7" title="The Real Cost"></button></li>
             <li><button onclick="scrollToSlide('slide8')" class="nav-dot" data-slide-id="slide8" title="SRE Guiding Principles"></button></li>
-            <li><button onclick="scrollToSlide('slide9')" class="nav-dot" data-slide-id="slide9" title="Core Terminology"></button></li>
-            <li><button onclick="scrollToSlide('slide10')" class="nav-dot" data-slide-id="slide10" title="SRE Principle: Service Level Objectives"></button></li>
+            <li><button onclick="scrollToSlide('slide9')" class="nav-dot" data-slide-id="slide9" title="Principle 1: Embracing Risk"></button></li>
+            <li><button onclick="scrollToSlide('slide10')" class="nav-dot" data-slide-id="slide10" title="Measuring Risk"></button></li>
+            <li><button onclick="scrollToSlide('slide11')" class="nav-dot" data-slide-id="slide11" title="Principle 2: Service Level Objectives"></button></li>
+            <li><button onclick="scrollToSlide('slide12')" class="nav-dot" data-slide-id="slide12" title="Principle 3: Eliminating Toil"></button></li>
+            <li><button onclick="scrollToSlide('slide13')" class="nav-dot" data-slide-id="slide13" title="Principle 4: Monitoring"></button></li>
+            <li><button onclick="scrollToSlide('slide14')" class="nav-dot" data-slide-id="slide14" title="Principle 5: Automation"></button></li>
+            <li><button onclick="scrollToSlide('slide15')" class="nav-dot" data-slide-id="slide15" title="Principle 6: Release Engineering"></button></li>
+            <li><button onclick="scrollToSlide('slide16')" class="nav-dot" data-slide-id="slide16" title="Principle 7: Simplicity"></button></li>
+
         </ul>
     </nav>
     
@@ -168,17 +175,17 @@
     <div id="slide2" class="min-h-screen flex items-center justify-center p-4">
         <div class="w-full max-w-6xl text-center md:pr-12">
             <div class="space-y-8" id="chat-container">
-                <!-- Eike's Message (Left) -->
+                <!-- CTO's Message (Left) -->
                 <div class="flex justify-start">
                     <div class="speech-bubble-left text-left text-gray-200" id="eike-bubble">
-                        <p><span class="font-bold text-emerald-300">Eike:</span> @Ryan @syed are we looking into doing something about the "address too long" errors - they seem to happen multiple times a day now?</p>
+                        <p><span class="font-bold text-emerald-300">CTO:</span> Are we looking into doing something about the "address too long" errors - they seem to happen multiple times a day now?</p>
                     </div>
                 </div>
 
                 <!-- Syed's Reply 1 (Right) -->
                 <div class="flex justify-end">
                     <div class="speech-bubble-right text-right text-white" id="syed-bubble-1">
-                        <p><span class="font-bold text-sky-300">Syed:</span> We have a 99% reliable service. We had 93 errors in the past month and 26,200 successful requests.</p>
+                        <p><span class="font-bold text-sky-300">Engineer:</span> We have a 99% reliable service. We had 93 errors in the past month and 26,200 successful requests.</p>
                     </div>
                 </div>
 
@@ -479,7 +486,7 @@
         <div class="w-full max-w-6xl text-center md:pr-12">
             <!-- Slide Title -->
             <h1 class="text-4xl sm:text-5xl lg:text-6xl font-bold mb-12 drop-shadow-lg text-transparent bg-clip-text bg-gradient-to-r from-red-400 to-orange-400">
-                SRE Principle: Embracing Risk
+                Principle 1: Embracing Risk
             </h1>
 
             <!-- Content -->
@@ -501,13 +508,54 @@
             </div>
         </div>
     </div>
-    
-    <!-- Slide 10: SRE Principle: Service Level Objectives -->
+
+    <!-- Slide 10: Measuring Risk -->
     <div id="slide10" class="min-h-screen flex items-center justify-center p-4">
         <div class="w-full max-w-6xl text-center md:pr-12">
             <!-- Slide Title -->
             <h1 class="text-4xl sm:text-5xl lg:text-6xl font-bold mb-12 drop-shadow-lg text-transparent bg-clip-text bg-gradient-to-r from-fuchsia-400 to-pink-400">
-                SRE Principle: Service Level Objectives
+                Measuring Risk
+            </h1>
+
+            <!-- Content -->
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-8 text-left">
+                <!-- Card 1: Time-based availability -->
+                <div class="bg-gray-800 p-8 rounded-2xl shadow-xl border border-gray-700 transition duration-300 transform hover:scale-105 hover:shadow-2xl">
+                    <div class="flex items-center space-x-4 mb-4">
+                        <i data-lucide="scale" class="w-12 h-12 text-teal-400"></i>
+                        <h2 class="text-2xl font-bold text-gray-200">Maximizing Stability</h2>
+                    </div>
+                    <p class="text-gray-400">Maximizing stability limits how fast new features can be developed and how quickly products can be delivered to users, and dramatically increases their cost, which in turn reduces the numbers of features a team can afford to offer.</p>
+                </div>
+
+                <!-- Card 2: Aggregate availability -->
+                <div class="bg-gray-800 p-8 rounded-2xl shadow-xl border border-gray-700 transition duration-300 transform hover:scale-105 hover:shadow-2xl">
+                    <div class="flex items-center space-x-4 mb-4">
+                        <i data-lucide="arrow-right-left" class="w-12 h-12 text-blue-400"></i>
+                        <h2 class="text-2xl font-bold text-gray-200">Opportunity Cost</h2>
+                    </div>
+                    <p class="text-gray-400">The opportunity cost borne by an organization when it allocates engineering resources to build systems or features that diminish risk instead of features that are directly visible to or usable by end users.</p>
+                </div>
+
+                <!-- Card 3: Identifying the Risk Tolerance -->
+                <div class="bg-gray-800 p-8 rounded-2xl shadow-xl border border-gray-700 transition duration-300 transform hover:scale-105 hover:shadow-2xl md:col-span-2">
+                    <div class="flex items-center space-x-4 mb-4">
+                        <i data-lucide="badge-dollar-sign" class="w-12 h-12 text-amber-400"></i>
+                        <h2 class="text-2xl font-bold text-gray-200">The cost of redundant machine/compute resources to improve reliability</h2>
+                    </div>
+                    <p class="text-gray-400">
+                    </p>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Slide 11: Principle 2: Service Level Objectives -->
+    <div id="slide11" class="min-h-screen flex items-center justify-center p-4">
+        <div class="w-full max-w-6xl text-center md:pr-12">
+            <!-- Slide Title -->
+            <h1 class="text-4xl sm:text-5xl lg:text-6xl font-bold mb-12 drop-shadow-lg text-transparent bg-clip-text bg-gradient-to-r from-fuchsia-400 to-pink-400">
+                Principle 2: Service Level Objectives
             </h1>
 
             <!-- Content -->
@@ -516,34 +564,34 @@
                 <div class="bg-gray-800 p-8 rounded-2xl shadow-xl border border-gray-700 transition duration-300 transform hover:scale-105 hover:shadow-2xl">
                     <div class="flex items-center space-x-4 mb-4">
                         <i data-lucide="clock" class="w-12 h-12 text-teal-400"></i>
-                        <h2 class="text-2xl font-bold text-gray-200">Time-based availability</h2>
+                        <h2 class="text-2xl font-bold text-gray-200">Title</h2>
                     </div>
-                    <p class="text-gray-400">A system with an availability target of **99.99%** can be down for up to **52.56 minutes** in a year and stay within its availability target.</p>
+                    <p class="text-gray-400">Some dummy content</p>
                 </div>
 
                 <!-- Card 2: Aggregate availability -->
                 <div class="bg-gray-800 p-8 rounded-2xl shadow-xl border border-gray-700 transition duration-300 transform hover:scale-105 hover:shadow-2xl">
                     <div class="flex items-center space-x-4 mb-4">
                         <i data-lucide="bar-chart-2" class="w-12 h-12 text-blue-400"></i>
-                        <h2 class="text-2xl font-bold text-gray-200">Aggregate availability</h2>
+                        <h2 class="text-2xl font-bold text-gray-200">Title</h2>
                     </div>
-                    <p class="text-gray-400">A system that serves **2.5M requests** in a day with a daily availability target of **99.99%** can serve up to **250 errors** and still hit its target for that given day.</p>
+                    <p class="text-gray-400">Some dummy content</p>
                 </div>
 
                 <!-- Card 3: Identifying the Risk Tolerance -->
                 <div class="bg-gray-800 p-8 rounded-2xl shadow-xl border border-gray-700 transition duration-300 transform hover:scale-105 hover:shadow-2xl md:col-span-2">
                     <div class="flex items-center space-x-4 mb-4">
                         <i data-lucide="award" class="w-12 h-12 text-amber-400"></i>
-                        <h2 class="text-2xl font-bold text-gray-200">Identifying the Risk Tolerance</h2>
+                        <h2 class="text-2xl font-bold text-gray-200">Title</h2>
                     </div>
                     <ul class="text-gray-400 space-y-4">
                         <li class="flex items-start space-x-4">
                             <span class="text-amber-400 font-bold">&bull;</span>
-                            <p>What level of availability is required?</p>
+                            <p>Some dummy content</p>
                         </li>
                         <li class="flex items-start space-x-4">
                             <span class="text-amber-400 font-bold">&bull;</span>
-                            <p>Do different types of failures have different effects on the service?</p>
+                            <p>Some dummy content</p>
                         </li>
                     </ul>
                 </div>
@@ -551,8 +599,253 @@
         </div>
     </div>
 
+    <!-- Slide 12: Principle 3: Eliminating Toil -->
+    <div id="slide12" class="min-h-screen flex items-center justify-center p-4">
+        <div class="w-full max-w-6xl text-center md:pr-12">
+            <!-- Slide Title -->
+            <h1 class="text-4xl sm:text-5xl lg:text-6xl font-bold mb-12 drop-shadow-lg text-transparent bg-clip-text bg-gradient-to-r from-fuchsia-400 to-pink-400">
+                Principle 3: Eliminating Toil
+            </h1>
+
+            <!-- Content -->
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-8 text-left">
+                <!-- Card 1: Time-based availability -->
+                <div class="bg-gray-800 p-8 rounded-2xl shadow-xl border border-gray-700 transition duration-300 transform hover:scale-105 hover:shadow-2xl">
+                    <div class="flex items-center space-x-4 mb-4">
+                        <i data-lucide="clock" class="w-12 h-12 text-teal-400"></i>
+                        <h2 class="text-2xl font-bold text-gray-200">Title</h2>
+                    </div>
+                    <p class="text-gray-400">Some dummy content</p>
+                </div>
+
+                <!-- Card 2: Aggregate availability -->
+                <div class="bg-gray-800 p-8 rounded-2xl shadow-xl border border-gray-700 transition duration-300 transform hover:scale-105 hover:shadow-2xl">
+                    <div class="flex items-center space-x-4 mb-4">
+                        <i data-lucide="bar-chart-2" class="w-12 h-12 text-blue-400"></i>
+                        <h2 class="text-2xl font-bold text-gray-200">Title</h2>
+                    </div>
+                    <p class="text-gray-400">Some dummy content</p>
+                </div>
+
+                <!-- Card 3: Identifying the Risk Tolerance -->
+                <div class="bg-gray-800 p-8 rounded-2xl shadow-xl border border-gray-700 transition duration-300 transform hover:scale-105 hover:shadow-2xl md:col-span-2">
+                    <div class="flex items-center space-x-4 mb-4">
+                        <i data-lucide="award" class="w-12 h-12 text-amber-400"></i>
+                        <h2 class="text-2xl font-bold text-gray-200">Title</h2>
+                    </div>
+                    <ul class="text-gray-400 space-y-4">
+                        <li class="flex items-start space-x-4">
+                            <span class="text-amber-400 font-bold">&bull;</span>
+                            <p>Some dummy content</p>
+                        </li>
+                        <li class="flex items-start space-x-4">
+                            <span class="text-amber-400 font-bold">&bull;</span>
+                            <p>Some dummy content</p>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </div>    
+
+    <!-- Slide 13: Principle 4: Monitoring -->
+    <div id="slide13" class="min-h-screen flex items-center justify-center p-4">
+        <div class="w-full max-w-6xl text-center md:pr-12">
+            <!-- Slide Title -->
+            <h1 class="text-4xl sm:text-5xl lg:text-6xl font-bold mb-12 drop-shadow-lg text-transparent bg-clip-text bg-gradient-to-r from-fuchsia-400 to-pink-400">
+                Principle 4: Monitoring
+            </h1>
+
+            <!-- Content -->
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-8 text-left">
+                <!-- Card 1: Time-based availability -->
+                <div class="bg-gray-800 p-8 rounded-2xl shadow-xl border border-gray-700 transition duration-300 transform hover:scale-105 hover:shadow-2xl">
+                    <div class="flex items-center space-x-4 mb-4">
+                        <i data-lucide="clock" class="w-12 h-12 text-teal-400"></i>
+                        <h2 class="text-2xl font-bold text-gray-200">Title</h2>
+                    </div>
+                    <p class="text-gray-400">Some dummy content</p>
+                </div>
+
+                <!-- Card 2: Aggregate availability -->
+                <div class="bg-gray-800 p-8 rounded-2xl shadow-xl border border-gray-700 transition duration-300 transform hover:scale-105 hover:shadow-2xl">
+                    <div class="flex items-center space-x-4 mb-4">
+                        <i data-lucide="bar-chart-2" class="w-12 h-12 text-blue-400"></i>
+                        <h2 class="text-2xl font-bold text-gray-200">Title</h2>
+                    </div>
+                    <p class="text-gray-400">Some dummy content</p>
+                </div>
+
+                <!-- Card 3: Identifying the Risk Tolerance -->
+                <div class="bg-gray-800 p-8 rounded-2xl shadow-xl border border-gray-700 transition duration-300 transform hover:scale-105 hover:shadow-2xl md:col-span-2">
+                    <div class="flex items-center space-x-4 mb-4">
+                        <i data-lucide="award" class="w-12 h-12 text-amber-400"></i>
+                        <h2 class="text-2xl font-bold text-gray-200">Title</h2>
+                    </div>
+                    <ul class="text-gray-400 space-y-4">
+                        <li class="flex items-start space-x-4">
+                            <span class="text-amber-400 font-bold">&bull;</span>
+                            <p>Some dummy content</p>
+                        </li>
+                        <li class="flex items-start space-x-4">
+                            <span class="text-amber-400 font-bold">&bull;</span>
+                            <p>Some dummy content</p>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Slide 14: Principle 5: Automation -->
+    <div id="slide14" class="min-h-screen flex items-center justify-center p-4">
+        <div class="w-full max-w-6xl text-center md:pr-12">
+            <!-- Slide Title -->
+            <h1 class="text-4xl sm:text-5xl lg:text-6xl font-bold mb-12 drop-shadow-lg text-transparent bg-clip-text bg-gradient-to-r from-fuchsia-400 to-pink-400">
+                Principle 5: Automation
+            </h1>
+
+            <!-- Content -->
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-8 text-left">
+                <!-- Card 1: Time-based availability -->
+                <div class="bg-gray-800 p-8 rounded-2xl shadow-xl border border-gray-700 transition duration-300 transform hover:scale-105 hover:shadow-2xl">
+                    <div class="flex items-center space-x-4 mb-4">
+                        <i data-lucide="clock" class="w-12 h-12 text-teal-400"></i>
+                        <h2 class="text-2xl font-bold text-gray-200">Title</h2>
+                    </div>
+                    <p class="text-gray-400">Some dummy content</p>
+                </div>
+
+                <!-- Card 2: Aggregate availability -->
+                <div class="bg-gray-800 p-8 rounded-2xl shadow-xl border border-gray-700 transition duration-300 transform hover:scale-105 hover:shadow-2xl">
+                    <div class="flex items-center space-x-4 mb-4">
+                        <i data-lucide="bar-chart-2" class="w-12 h-12 text-blue-400"></i>
+                        <h2 class="text-2xl font-bold text-gray-200">Title</h2>
+                    </div>
+                    <p class="text-gray-400">Some dummy content</p>
+                </div>
+
+                <!-- Card 3: Identifying the Risk Tolerance -->
+                <div class="bg-gray-800 p-8 rounded-2xl shadow-xl border border-gray-700 transition duration-300 transform hover:scale-105 hover:shadow-2xl md:col-span-2">
+                    <div class="flex items-center space-x-4 mb-4">
+                        <i data-lucide="award" class="w-12 h-12 text-amber-400"></i>
+                        <h2 class="text-2xl font-bold text-gray-200">Title</h2>
+                    </div>
+                    <ul class="text-gray-400 space-y-4">
+                        <li class="flex items-start space-x-4">
+                            <span class="text-amber-400 font-bold">&bull;</span>
+                            <p>Some dummy content</p>
+                        </li>
+                        <li class="flex items-start space-x-4">
+                            <span class="text-amber-400 font-bold">&bull;</span>
+                            <p>Some dummy content</p>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </div>  
+    
+    <!-- Slide 15: Principle 6: Release Engineering -->
+    <div id="slide15" class="min-h-screen flex items-center justify-center p-4">
+        <div class="w-full max-w-6xl text-center md:pr-12">
+            <!-- Slide Title -->
+            <h1 class="text-4xl sm:text-5xl lg:text-6xl font-bold mb-12 drop-shadow-lg text-transparent bg-clip-text bg-gradient-to-r from-fuchsia-400 to-pink-400">
+                Principle 6: Release Engineering
+            </h1>
+
+            <!-- Content -->
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-8 text-left">
+                <!-- Card 1: Time-based availability -->
+                <div class="bg-gray-800 p-8 rounded-2xl shadow-xl border border-gray-700 transition duration-300 transform hover:scale-105 hover:shadow-2xl">
+                    <div class="flex items-center space-x-4 mb-4">
+                        <i data-lucide="clock" class="w-12 h-12 text-teal-400"></i>
+                        <h2 class="text-2xl font-bold text-gray-200">Title</h2>
+                    </div>
+                    <p class="text-gray-400">Some dummy content</p>
+                </div>
+
+                <!-- Card 2: Aggregate availability -->
+                <div class="bg-gray-800 p-8 rounded-2xl shadow-xl border border-gray-700 transition duration-300 transform hover:scale-105 hover:shadow-2xl">
+                    <div class="flex items-center space-x-4 mb-4">
+                        <i data-lucide="bar-chart-2" class="w-12 h-12 text-blue-400"></i>
+                        <h2 class="text-2xl font-bold text-gray-200">Title</h2>
+                    </div>
+                    <p class="text-gray-400">Some dummy content</p>
+                </div>
+
+                <!-- Card 3: Identifying the Risk Tolerance -->
+                <div class="bg-gray-800 p-8 rounded-2xl shadow-xl border border-gray-700 transition duration-300 transform hover:scale-105 hover:shadow-2xl md:col-span-2">
+                    <div class="flex items-center space-x-4 mb-4">
+                        <i data-lucide="award" class="w-12 h-12 text-amber-400"></i>
+                        <h2 class="text-2xl font-bold text-gray-200">Title</h2>
+                    </div>
+                    <ul class="text-gray-400 space-y-4">
+                        <li class="flex items-start space-x-4">
+                            <span class="text-amber-400 font-bold">&bull;</span>
+                            <p>Some dummy content</p>
+                        </li>
+                        <li class="flex items-start space-x-4">
+                            <span class="text-amber-400 font-bold">&bull;</span>
+                            <p>Some dummy content</p>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </div>  
+    
+    <!-- Slide 15: Principle 7: Simplicity -->
+    <div id="slide16" class="min-h-screen flex items-center justify-center p-4">
+        <div class="w-full max-w-6xl text-center md:pr-12">
+            <!-- Slide Title -->
+            <h1 class="text-4xl sm:text-5xl lg:text-6xl font-bold mb-12 drop-shadow-lg text-transparent bg-clip-text bg-gradient-to-r from-fuchsia-400 to-pink-400">
+                Principle 7: Simplicity
+            </h1>
+
+            <!-- Content -->
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-8 text-left">
+                <!-- Card 1: Time-based availability -->
+                <div class="bg-gray-800 p-8 rounded-2xl shadow-xl border border-gray-700 transition duration-300 transform hover:scale-105 hover:shadow-2xl">
+                    <div class="flex items-center space-x-4 mb-4">
+                        <i data-lucide="clock" class="w-12 h-12 text-teal-400"></i>
+                        <h2 class="text-2xl font-bold text-gray-200">Title</h2>
+                    </div>
+                    <p class="text-gray-400">Some dummy content</p>
+                </div>
+
+                <!-- Card 2: Aggregate availability -->
+                <div class="bg-gray-800 p-8 rounded-2xl shadow-xl border border-gray-700 transition duration-300 transform hover:scale-105 hover:shadow-2xl">
+                    <div class="flex items-center space-x-4 mb-4">
+                        <i data-lucide="bar-chart-2" class="w-12 h-12 text-blue-400"></i>
+                        <h2 class="text-2xl font-bold text-gray-200">Title</h2>
+                    </div>
+                    <p class="text-gray-400">Some dummy content</p>
+                </div>
+
+                <!-- Card 3: Identifying the Risk Tolerance -->
+                <div class="bg-gray-800 p-8 rounded-2xl shadow-xl border border-gray-700 transition duration-300 transform hover:scale-105 hover:shadow-2xl md:col-span-2">
+                    <div class="flex items-center space-x-4 mb-4">
+                        <i data-lucide="award" class="w-12 h-12 text-amber-400"></i>
+                        <h2 class="text-2xl font-bold text-gray-200">Title</h2>
+                    </div>
+                    <ul class="text-gray-400 space-y-4">
+                        <li class="flex items-start space-x-4">
+                            <span class="text-amber-400 font-bold">&bull;</span>
+                            <p>Some dummy content</p>
+                        </li>
+                        <li class="flex items-start space-x-4">
+                            <span class="text-amber-400 font-bold">&bull;</span>
+                            <p>Some dummy content</p>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </div>    
+
     <!-- Slide 11: Blank slide -->
-    <div id="slide11" class="min-h-screen flex items-center justify-center p-4">
+    <div id="slide12" class="min-h-screen flex items-center justify-center p-4">
         <div class="w-full max-w-6xl text-center md:pr-12">
             <!-- This is an empty slide for future content -->
         </div>
@@ -561,7 +854,7 @@
 
     <script>
         // Array of slide IDs for easy navigation
-        const slideIds = ['slide1', 'slide2', 'slide3', 'slide4', 'slide5', 'slide6', 'slide7', 'slide8', 'slide9', 'slide10', 'slide11'];
+        const slideIds = ['slide1', 'slide2', 'slide3', 'slide4', 'slide5', 'slide6', 'slide7', 'slide8', 'slide9', 'slide10', 'slide11', 'slide12', 'slide13', 'slide14', 'slide15', 'slide16'];
         // Get all slides and their content
         const slides = document.querySelectorAll('body > div');
         const chatContainer = document.getElementById('chat-container');
@@ -654,6 +947,32 @@
                     dot.classList.add('active');
                 }
             });
+        });
+
+        // Keyboard navigation using arrow keys
+        window.addEventListener('keydown', (event) => {
+            const currentActiveDot = document.querySelector('.nav-dot.active');
+            if (!currentActiveDot) return;
+
+            const currentSlideId = currentActiveDot.getAttribute('data-slide-id');
+            const currentIndex = slideIds.indexOf(currentSlideId);
+
+            if (event.key === 'ArrowRight') {
+                event.preventDefault();
+                // Custom logic for animating slide 2 and 3
+                if (currentSlideId === 'slide2' && chatStep < speechBubbles.length) {
+                    showChatBubble();
+                } else if (currentSlideId === 'slide3' && agendaStep < agendaItems.length) {
+                    showAgendaItem();
+                } else if (currentIndex < slideIds.length - 1) {
+                    const nextSlideId = slideIds[currentIndex + 1];
+                    scrollToSlide(nextSlideId);
+                }
+            } else if (event.key === 'ArrowLeft' && currentIndex > 0) {
+                event.preventDefault();
+                const prevSlideId = slideIds[currentIndex - 1];
+                scrollToSlide(prevSlideId);
+            }
         });
 
         // Use Lucide to render the icons and trigger initial animation if on a specific slide
