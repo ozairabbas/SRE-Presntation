@@ -1,0 +1,672 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SRE Presentation</title>
+    <!-- Tailwind CSS CDN -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+      // Load Inter font from Google Fonts
+      tailwind.config = {
+        theme: {
+          extend: {
+            fontFamily: {
+              sans: ['Inter', 'sans-serif'],
+            },
+          }
+        }
+      }
+    </script>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <!-- Lucide Icons CDN -->
+    <script src="https://unpkg.com/lucide@latest"></script>
+    <!-- D3.js for charting -->
+    <script src="https://d3js.org/d3.v7.min.js"></script>
+    <style>
+        .icon-container {
+            /* Fix for Lucide icons not always aligning correctly */
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .nav-dot {
+            position: relative;
+            width: 12px;
+            height: 12px;
+            border-radius: 50%;
+            background-color: #4b5563; /* gray-600 */
+            transition: all 0.3s ease;
+            cursor: pointer;
+        }
+
+        .nav-dot:hover {
+            background-color: #6b7280; /* gray-500 */
+        }
+
+        .nav-dot.active {
+            background-color: #fff; /* white */
+            transform: scale(1.5);
+            box-shadow: 0 0 8px rgba(255, 255, 255, 0.5);
+        }
+        
+        .nav-dot::after {
+            content: attr(title);
+            position: absolute;
+            right: 20px;
+            top: 50%;
+            transform: translateY(-50%);
+            background-color: #1f2937; /* slate-800 */
+            color: #fff;
+            padding: 4px 8px;
+            border-radius: 6px;
+            white-space: nowrap;
+            font-size: 0.875rem;
+            opacity: 0;
+            visibility: hidden;
+            transition: opacity 0.3s, visibility 0.3s;
+        }
+
+        .nav-dot:hover::after {
+            opacity: 1;
+            visibility: visible;
+        }
+        
+        .speech-bubble-left, .speech-bubble-right {
+            position: relative;
+            border-radius: 1rem;
+            padding: 1rem;
+            max-width: 75%;
+        }
+        
+        .speech-bubble-left {
+            background-color: #374151; /* slate-700 */
+        }
+
+        .speech-bubble-left:before {
+            content: "";
+            position: absolute;
+            top: 50%;
+            left: -10px;
+            width: 0;
+            height: 0;
+            border-top: 10px solid transparent;
+            border-right: 10px solid #374151; /* slate-700 */
+            border-bottom: 10px solid transparent;
+            transform: translateY(-50%);
+        }
+        
+        .speech-bubble-right {
+            background-color: #1d4ed8; /* blue-700 */
+        }
+
+        .speech-bubble-right:before {
+            content: "";
+            position: absolute;
+            top: 50%;
+            right: -10px;
+            width: 0;
+            height: 0;
+            border-top: 10px solid transparent;
+            border-left: 10px solid #1d4ed8; /* blue-700 */
+            border-bottom: 10px solid transparent;
+            transform: translateY(-50%);
+        }
+
+        .footer {
+            position: fixed;
+            bottom: 0;
+            left: 0;
+            width: 100%;
+            background-color: #1f2937; /* slate-800 */
+            color: #d1d5db; /* gray-300 */
+            text-align: center;
+            padding: 1rem 2rem;
+            box-shadow: 0 -2px 10px rgba(0, 0, 0, 0.5);
+            z-index: 100;
+        }
+        
+    </style>
+</head>
+<body class="bg-slate-900 font-sans text-white">
+
+    <!-- Fixed Navigation Dots -->
+    <nav class="fixed right-4 top-1/2 -translate-y-1/2 z-50 hidden md:block">
+        <ul id="nav-dots" class="flex flex-col space-y-4">
+            <li><button onclick="scrollToSlide('slide1')" class="nav-dot active" data-slide-id="slide1" title="Title Slide"></button></li>
+            <li><button onclick="scrollToSlide('slide2')" class="nav-dot" data-slide-id="slide2" title="Real-World Scenario"></button></li>
+            <li><button onclick="scrollToSlide('slide3')" class="nav-dot" data-slide-id="slide3" title="Agenda"></button></li>
+            <li><button onclick="scrollToSlide('slide4')" class="nav-dot" data-slide-id="slide4" title="Introduction to SRE"></button></li>
+            <li><button onclick="scrollToSlide('slide5')" class="nav-dot" data-slide-id="slide5" title="Why SRE is Important"></button></li>
+            <li><button onclick="scrollToSlide('slide6')" class="nav-dot" data-slide-id="slide6" title="Real-World Example"></button></li>
+            <li><button onclick="scrollToSlide('slide7')" class="nav-dot" data-slide-id="slide7" title="The Real Cost"></button></li>
+            <li><button onclick="scrollToSlide('slide8')" class="nav-dot" data-slide-id="slide8" title="SRE Guiding Principles"></button></li>
+            <li><button onclick="scrollToSlide('slide9')" class="nav-dot" data-slide-id="slide9" title="Core Terminology"></button></li>
+            <li><button onclick="scrollToSlide('slide10')" class="nav-dot" data-slide-id="slide10" title="SRE Principle: Service Level Objectives"></button></li>
+        </ul>
+    </nav>
+    
+    <!-- Footer with navigation tip -->
+    <footer class="footer hidden md:block">
+        <p class="text-sm">Use the dots to navigate.</p>
+    </footer>
+
+    <!-- Slide 1: Title Slide -->
+    <div id="slide1" class="min-h-screen flex items-center justify-center p-4">
+        <div class="w-full max-w-6xl text-center md:pr-12">
+            <h1 class="text-5xl sm:text-6xl lg:text-8xl font-bold mb-4 drop-shadow-lg text-transparent bg-clip-text bg-gradient-to-r from-teal-400 to-emerald-500">
+                Service Reliability Engineering
+            </h1>
+            <h2 class="text-2xl sm:text-3xl lg:text-4xl font-semibold text-gray-300">
+                How can we introduce SRE in ZAVA
+            </h2>
+        </div>
+    </div>
+
+    <!-- Slide 2: A Real-World Scenario -->
+    <div id="slide2" class="min-h-screen flex items-center justify-center p-4">
+        <div class="w-full max-w-6xl text-center md:pr-12">
+            <div class="space-y-8" id="chat-container">
+                <!-- Eike's Message (Left) -->
+                <div class="flex justify-start">
+                    <div class="speech-bubble-left text-left text-gray-200" id="eike-bubble">
+                        <p><span class="font-bold text-emerald-300">Eike:</span> @Ryan @syed are we looking into doing something about the "address too long" errors - they seem to happen multiple times a day now?</p>
+                    </div>
+                </div>
+
+                <!-- Syed's Reply 1 (Right) -->
+                <div class="flex justify-end">
+                    <div class="speech-bubble-right text-right text-white" id="syed-bubble-1">
+                        <p><span class="font-bold text-sky-300">Syed:</span> We have a 99% reliable service. We had 93 errors in the past month and 26,200 successful requests.</p>
+                    </div>
+                </div>
+
+                <!-- Syed's Reply 2 (Right) -->
+                <div class="flex justify-end">
+                    <div class="speech-bubble-right text-right text-white" id="syed-bubble-2">
+                        <p>Out of the 93 errors, 50 were related to a third party incident.</p>
+                    </div>
+                </div>
+
+                <!-- Syed's Reply 3 (Right) -->
+                <div class="flex justify-end">
+                    <div class="speech-bubble-right text-right text-white" id="syed-bubble-3">
+                        <p>We can work towards increasing our reliability to 99.99%.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Slide 3: Agenda -->
+    <div id="slide3" class="min-h-screen flex items-center justify-center p-4">
+        <div class="w-full max-w-6xl text-center md:pr-12">
+            <h1 class="text-4xl sm:text-5xl lg:text-6xl font-bold mb-12 drop-shadow-lg text-transparent bg-clip-text bg-gradient-to-r from-purple-400 to-pink-400">
+                Agenda
+            </h1>
+            <div id="agenda-list" class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 text-left">
+                <!-- Agenda Point 1 -->
+                <div class="bg-gray-800 p-6 rounded-xl shadow-lg transition-shadow duration-300" data-index="0">
+                    <div class="flex items-center space-x-4 mb-2">
+                        <i data-lucide="info" class="w-8 h-8 text-indigo-400"></i>
+                        <h2 class="text-2xl font-bold">Introduction to SRE</h2>
+                    </div>
+                    <p class="text-gray-400">What is Site Reliability Engineering and its core purpose?</p>
+                </div>
+                <!-- Agenda Point 2 -->
+                <div class="bg-gray-800 p-6 rounded-xl shadow-lg transition-shadow duration-300" data-index="1">
+                    <div class="flex items-center space-x-4 mb-2">
+                        <i data-lucide="shield-check" class="w-8 h-8 text-emerald-400"></i>
+                        <h2 class="text-2xl font-bold">Why SRE is Important</h2>
+                    </div>
+                    <p class="text-gray-400">Understanding the value and benefits of adopting SRE practices.</p>
+                </div>
+                <!-- Agenda Point 3 -->
+                <div class="bg-gray-800 p-6 rounded-xl shadow-lg transition-shadow duration-300" data-index="2">
+                    <div class="flex items-center space-x-4 mb-2">
+                        <i data-lucide="trending-up" class="w-8 h-8 text-yellow-400"></i>
+                        <h2 class="text-2xl font-bold">Real-World Example</h2>
+                    </div>
+                    <p class="text-gray-400">A look at how a major tech company implements SRE successfully.</p>
+                </div>
+                <!-- Agenda Point 4 -->
+                <div class="bg-gray-800 p-6 rounded-xl shadow-lg transition-shadow duration-300" data-index="3">
+                    <div class="flex items-center space-x-4 mb-2">
+                        <i data-lucide="dollar-sign" class="w-8 h-8 text-rose-400"></i>
+                        <h2 class="text-2xl font-bold">The Real Cost</h2>
+                    </div>
+                    <p class="text-gray-400">An examination of the financial impact of system maintenance.</p>
+                </div>
+                <!-- Agenda Point 5 -->
+                <div class="bg-gray-800 p-6 rounded-xl shadow-lg transition-shadow duration-300" data-index="4">
+                    <div class="flex items-center space-x-4 mb-2">
+                        <i data-lucide="layout-grid" class="w-8 h-8 text-purple-400"></i>
+                        <h2 class="text-2xl font-bold">SRE Guiding Principles</h2>
+                    </div>
+                    <p class="text-gray-400">The core philosophies and beliefs that drive SRE teams.</p>
+                </div>
+                <!-- Agenda Point 6 -->
+                <div class="bg-gray-800 p-6 rounded-xl shadow-lg transition-shadow duration-300" data-index="5">
+                    <div class="flex items-center space-x-4 mb-2">
+                        <i data-lucide="book-open-text" class="w-8 h-8 text-sky-400"></i>
+                        <h2 class="text-2xl font-bold">Core Terminology</h2>
+                    </div>
+                    <p class="text-gray-400">Key terms and concepts every SRE team needs to know.</p>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Slide 4: Introduction to SRE -->
+    <div id="slide4" class="min-h-screen flex items-center justify-center p-4">
+        <div class="w-full max-w-6xl text-center md:pr-12">
+            <!-- Slide Title -->
+            <h1 class="text-4xl sm:text-5xl lg:text-6xl font-bold mb-12 drop-shadow-lg text-transparent bg-clip-text bg-gradient-to-r from-purple-400 to-indigo-400">
+                Introduction to SRE
+            </h1>
+
+            <!-- Grid of points -->
+            <div class="grid grid-cols-1 lg:grid-cols-2 gap-8">
+
+                <!-- Point 1: Definition -->
+                <div class="bg-gray-800 p-8 rounded-2xl shadow-xl border border-gray-700 transition duration-300 transform hover:scale-105 hover:shadow-2xl">
+                    <div class="icon-container mb-4 text-emerald-400">
+                        <i data-lucide="layers" class="w-12 h-12"></i>
+                    </div>
+                    <h2 class="text-2xl font-bold mb-4">Definition</h2>
+                    <ul class="text-left text-gray-400 space-y-2">
+                        <li>Site Reliability Engineering is a discipline that applies software engineering practices to IT infrastructure and operations.</li>
+                        <li>Originated at Google to make systems scalable, reliable, and efficient.</li>
+                        <li>Combines a development mindset with operational responsibilities.</li>
+                    </ul>
+                </div>
+
+                <!-- Point 2: Goal -->
+                <div class="bg-gray-800 p-8 rounded-2xl shadow-xl border border-gray-700 transition duration-300 transform hover:scale-105 hover:shadow-2xl">
+                    <div class="icon-container mb-4 text-sky-400">
+                        <i data-lucide="target" class="w-12 h-12"></i>
+                    </div>
+                    <h2 class="text-2xl font-bold mb-4">Goal</h2>
+                    <p class="text-gray-400">To create reliable systems at scale while enabling rapid innovation.</p>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Slide 5: Why SRE is Important -->
+    <div id="slide5" class="min-h-screen flex items-center justify-center p-4">
+        <div class="w-full max-w-6xl text-center md:pr-12">
+            <!-- Main Title -->
+            <h1 class="text-4xl sm:text-5xl lg:text-6xl font-bold mb-12 drop-shadow-lg text-transparent bg-clip-text bg-gradient-to-r from-blue-400 to-emerald-400">
+                Why SRE is Important
+            </h1>
+
+            <!-- Grid of points -->
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+
+                <!-- Point 1: Downtime is expensive -->
+                <div class="bg-gray-800 p-8 rounded-2xl shadow-xl border border-gray-700 transition duration-300 transform hover:scale-105 hover:shadow-2xl">
+                    <div class="icon-container mb-4 text-rose-500">
+                        <i data-lucide="alert-triangle" class="w-12 h-12"></i>
+                    </div>
+                    <h2 class="text-2xl font-bold mb-2">Downtime is Expensive</h2>
+                    <p class="text-gray-400">Lost revenue, damaged customer trust, and decreased productivity can have a huge impact on the bottom line.</p>
+                </div>
+
+                <!-- Point 2: Bridges the gap -->
+                <div class="bg-gray-800 p-8 rounded-2xl shadow-xl border border-gray-700 transition duration-300 transform hover:scale-105 hover:shadow-2xl">
+                    <div class="icon-container mb-4 text-indigo-400">
+                        <i data-lucide="git-merge" class="w-12 h-12"></i>
+                    </div>
+                    <h2 class="text-2xl font-bold mb-2">Bridges the Gap</h2>
+                    <p class="text-gray-400">Fosters collaboration between Development and Operations teams to build a shared sense of ownership.</p>
+                </div>
+
+                <!-- Point 3: Proactive approach -->
+                <div class="bg-gray-800 p-8 rounded-2xl shadow-xl border border-gray-700 transition duration-300 transform hover:scale-105 hover:shadow-2xl">
+                    <div class="icon-container mb-4 text-emerald-400">
+                        <i data-lucide="shield-check" class="w-12 h-12"></i>
+                    </div>
+                    <h2 class="text-2xl font-bold mb-2">Proactive Approach</h2>
+                    <p class="text-gray-400">Focuses on preventing incidents before they happen, rather than simply reacting to failures as they occur.</p>
+                </div>
+
+                <!-- Point 4: Scales reliability -->
+                <div class="bg-gray-800 p-8 rounded-2xl shadow-xl border border-gray-700 transition duration-300 transform hover:scale-105 hover:shadow-2xl">
+                    <div class="icon-container mb-4 text-amber-400">
+                        <i data-lucide="bar-chart-2" class="w-12 h-12"></i>
+                    </div>
+                    <h2 class="text-2xl font-bold mb-2">Scales Reliability</h2>
+                    <p class="text-gray-400">Achieves reliability at scale through key practices like automation, monitoring, and performance engineering.</p>
+                </div>
+
+                <!-- Point 5: Supports faster releases -->
+                <div class="bg-gray-800 p-8 rounded-2xl shadow-xl border border-gray-700 transition duration-300 transform hover:scale-105 hover:shadow-2xl md:col-span-2 lg:col-span-1 md:mx-auto">
+                    <div class="icon-container mb-4 text-sky-400">
+                        <i data-lucide="rocket" class="w-12 h-12"></i>
+                    </div>
+                    <h2 class="text-2xl font-bold mb-2">Supports Faster Releases</h2>
+                    <p class="text-gray-400">Enables teams to release new features and updates more quickly and confidently, without compromising quality.</p>
+                </div>
+
+            </div>
+        </div>
+    </div>
+
+    <!-- Slide 6: Real-World Example -->
+    <div id="slide6" class="min-h-screen flex items-center justify-center p-4">
+        <div class="w-full max-w-6xl text-center md:pr-12">
+            <!-- Slide Title -->
+            <h1 class="text-4xl sm:text-5xl lg:text-6xl font-bold mb-12 drop-shadow-lg text-transparent bg-clip-text bg-gradient-to-r from-cyan-400 to-green-400">
+                A Real-World Example
+            </h1>
+
+            <!-- Example Quote Card -->
+            <div class="bg-gray-800 p-12 rounded-2xl shadow-xl border border-gray-700 transition duration-300 transform hover:scale-105 hover:shadow-2xl">
+                <div class="icon-container mb-6 text-yellow-400">
+                    <i data-lucide="trending-up" class="w-16 h-16"></i>
+                </div>
+                <p class="text-2xl sm:text-3xl lg:text-4xl font-semibold leading-relaxed text-gray-200">
+                    With SRE practices, organisations like Google maintain <span class="text-green-400">99.99% uptime</span> while deploying thousands of changes per day.
+                </p>
+                <p class="mt-8 text-sm text-gray-500 italic">Source: Google SRE Book</p>
+            </div>
+        </div>
+    </div>
+
+    <!-- Slide 7: The Real Cost -->
+    <div id="slide7" class="min-h-screen flex items-center justify-center p-4">
+        <div class="w-full max-w-6xl text-center md:pr-12">
+            <!-- Slide Title -->
+            <h1 class="text-4xl sm:text-5xl lg:text-6xl font-bold mb-12 drop-shadow-lg text-transparent bg-clip-text bg-gradient-to-r from-red-400 to-orange-400">
+                The Real Cost
+            </h1>
+
+            <!-- Quote Card -->
+            <div class="bg-gray-800 p-12 rounded-2xl shadow-xl border border-gray-700 transition duration-300 transform hover:scale-105 hover:shadow-2xl">
+                <div class="icon-container mb-6 text-red-400">
+                    <i data-lucide="dollar-sign" class="w-16 h-16"></i>
+                </div>
+                <p class="text-2xl sm:text-3xl lg:text-4xl font-semibold leading-relaxed text-gray-200">
+                    40 to 90% of the total costs of a system are incurred after birth.
+                </p>
+                <p class="mt-8 text-sm text-gray-500 italic">Source: Site Reliability Engineering | How Google runs production systems</p>
+            </div>
+        </div>
+    </div>
+
+    <!-- Slide 8: SRE Guiding Principles -->
+    <div id="slide8" class="min-h-screen flex items-center justify-center p-4">
+        <div class="w-full max-w-6xl text-center md:pr-12">
+            <!-- Slide Title -->
+            <h1 class="text-4xl sm:text-5xl lg:text-6xl font-bold mb-12 drop-shadow-lg text-transparent bg-clip-text bg-gradient-to-r from-emerald-400 to-green-400">
+                SRE Guiding Principles
+            </h1>
+
+            <!-- Grid of points -->
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+
+                <!-- Point 1: Embracing risk -->
+                <div class="bg-gray-800 p-8 rounded-2xl shadow-xl border border-gray-700 transition duration-300 transform hover:scale-105 hover:shadow-2xl">
+                    <div class="icon-container mb-4 text-rose-500">
+                        <i data-lucide="alert-circle" class="w-12 h-12"></i>
+                    </div>
+                    <h2 class="text-2xl font-bold mb-2">Embracing Risk</h2>
+                    <p class="text-gray-400">Reducing risk becomes exponentially more difficult and costly as it nears 100% reliability.</p>
+                </div>
+
+                <!-- Point 2: Service level objectives -->
+                <div class="bg-gray-800 p-8 rounded-2xl shadow-xl border border-gray-700 transition duration-300 transform hover:scale-105 hover:shadow-2xl">
+                    <div class="icon-container mb-4 text-amber-400">
+                        <i data-lucide="percent" class="w-12 h-12"></i>
+                    </div>
+                    <h2 class="text-2xl font-bold mb-2">Service Level Objectives</h2>
+                    <p class="text-gray-400">You can’t improve what you can’t measure.</p>
+                </div>
+
+                <!-- Point 3: Eliminating toil -->
+                <div class="bg-gray-800 p-8 rounded-2xl shadow-xl border border-gray-700 transition duration-300 transform hover:scale-105 hover:shadow-2xl">
+                    <div class="icon-container mb-4 text-indigo-400">
+                        <i data-lucide="scissors" class="w-12 h-12"></i>
+                    </div>
+                    <h2 class="text-2xl font-bold mb-2">Eliminating Toil</h2>
+                    <p class="text-gray-400">If your service remains in the same state after you have finished a task, the task was probably toil.</p>
+                </div>
+
+                <!-- Point 4: Monitoring -->
+                <div class="bg-gray-800 p-8 rounded-2xl shadow-xl border border-gray-700 transition duration-300 transform hover:scale-105 hover:shadow-2xl">
+                    <div class="icon-container mb-4 text-emerald-400">
+                        <i data-lucide="activity" class="w-12 h-12"></i>
+                    </div>
+                    <h2 class="text-2xl font-bold mb-2">Monitoring</h2>
+                    <p class="text-gray-400">Focus on the four golden signals: Latency, Traffic, Errors, and Saturation.</p>
+                </div>
+
+                <!-- Point 5: Automation -->
+                <div class="bg-gray-800 p-8 rounded-2xl shadow-xl border border-gray-700 transition duration-300 transform hover:scale-105 hover:shadow-2xl">
+                    <div class="icon-container mb-4 text-sky-400">
+                        <i data-lucide="bot" class="w-12 h-12"></i>
+                    </div>
+                    <h2 class="text-2xl font-bold mb-2">Automation</h2>
+                    <p class="text-gray-400">Free engineers from having to grapple with repetitive tasks that do not add value.</p>
+                </div>
+
+                <!-- Point 6: Release engineering -->
+                <div class="bg-gray-800 p-8 rounded-2xl shadow-xl border border-gray-700 transition duration-300 transform hover:scale-105 hover:shadow-2xl">
+                    <div class="icon-container mb-4 text-purple-400">
+                        <i data-lucide="package" class="w-12 h-12"></i>
+                    </div>
+                    <h2 class="text-2xl font-bold mb-2">Release Engineering</h2>
+                    <p class="text-gray-400">Includes versioning, schedules, continuous builds, gathering of release metrics, and more.</p>
+                </div>
+
+                <!-- Point 7: Simplicity -->
+                <div class="bg-gray-800 p-8 rounded-2xl shadow-xl border border-gray-700 transition duration-300 transform hover:scale-105 hover:shadow-2xl lg:col-span-3">
+                    <div class="icon-container mb-4 text-rose-500">
+                        <i data-lucide="feather" class="w-12 h-12"></i>
+                    </div>
+                    <h2 class="text-2xl font-bold mb-2">Simplicity</h2>
+                    <p class="text-gray-400">More features equates to more complexity, which can lead to reliability issues.</p>
+                </div>
+
+            </div>
+        </div>
+    </div>
+
+    <!-- Slide 9: SRE Principle: Embracing Risk -->
+    <div id="slide9" class="min-h-screen flex items-center justify-center p-4">
+        <div class="w-full max-w-6xl text-center md:pr-12">
+            <!-- Slide Title -->
+            <h1 class="text-4xl sm:text-5xl lg:text-6xl font-bold mb-12 drop-shadow-lg text-transparent bg-clip-text bg-gradient-to-r from-red-400 to-orange-400">
+                SRE Principle: Embracing Risk
+            </h1>
+
+            <!-- Content -->
+            <div class="bg-gray-800 p-12 rounded-2xl shadow-xl border border-gray-700 transition duration-300 transform hover:scale-105 hover:shadow-2xl">
+                <ul class="text-left text-gray-400 space-y-8 text-xl md:text-2xl">
+                    <li class="flex items-start space-x-4">
+                        <span class="text-red-400 font-bold">&bull;</span>
+                        <p>Maximizing stability limits how fast new features can be developed and how quickly products can be delivered to users, and dramatically increases their cost, which in turn reduces the numbers of features a team can afford to offer.</p>
+                    </li>
+                    <li class="flex items-start space-x-4">
+                        <span class="text-red-400 font-bold">&bull;</span>
+                        <p>The cost of redundant machine/compute resources to improve reliability.</p>
+                    </li>
+                    <li class="flex items-start space-x-4">
+                        <span class="text-red-400 font-bold">&bull;</span>
+                        <p>The opportunity cost borne by an organization when it allocates engineering resources to build systems or features that diminish risk instead of features that are directly visible to or usable by end users.</p>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </div>
+    
+    <!-- Slide 10: SRE Principle: Service Level Objectives -->
+    <div id="slide10" class="min-h-screen flex items-center justify-center p-4">
+        <div class="w-full max-w-6xl text-center md:pr-12">
+            <!-- Slide Title -->
+            <h1 class="text-4xl sm:text-5xl lg:text-6xl font-bold mb-12 drop-shadow-lg text-transparent bg-clip-text bg-gradient-to-r from-fuchsia-400 to-pink-400">
+                SRE Principle: Service Level Objectives
+            </h1>
+
+            <!-- Content -->
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-8 text-left">
+                <!-- Card 1: Time-based availability -->
+                <div class="bg-gray-800 p-8 rounded-2xl shadow-xl border border-gray-700 transition duration-300 transform hover:scale-105 hover:shadow-2xl">
+                    <div class="flex items-center space-x-4 mb-4">
+                        <i data-lucide="clock" class="w-12 h-12 text-teal-400"></i>
+                        <h2 class="text-2xl font-bold text-gray-200">Time-based availability</h2>
+                    </div>
+                    <p class="text-gray-400">A system with an availability target of **99.99%** can be down for up to **52.56 minutes** in a year and stay within its availability target.</p>
+                </div>
+
+                <!-- Card 2: Aggregate availability -->
+                <div class="bg-gray-800 p-8 rounded-2xl shadow-xl border border-gray-700 transition duration-300 transform hover:scale-105 hover:shadow-2xl">
+                    <div class="flex items-center space-x-4 mb-4">
+                        <i data-lucide="bar-chart-2" class="w-12 h-12 text-blue-400"></i>
+                        <h2 class="text-2xl font-bold text-gray-200">Aggregate availability</h2>
+                    </div>
+                    <p class="text-gray-400">A system that serves **2.5M requests** in a day with a daily availability target of **99.99%** can serve up to **250 errors** and still hit its target for that given day.</p>
+                </div>
+
+                <!-- Card 3: Identifying the Risk Tolerance -->
+                <div class="bg-gray-800 p-8 rounded-2xl shadow-xl border border-gray-700 transition duration-300 transform hover:scale-105 hover:shadow-2xl md:col-span-2">
+                    <div class="flex items-center space-x-4 mb-4">
+                        <i data-lucide="award" class="w-12 h-12 text-amber-400"></i>
+                        <h2 class="text-2xl font-bold text-gray-200">Identifying the Risk Tolerance</h2>
+                    </div>
+                    <ul class="text-gray-400 space-y-4">
+                        <li class="flex items-start space-x-4">
+                            <span class="text-amber-400 font-bold">&bull;</span>
+                            <p>What level of availability is required?</p>
+                        </li>
+                        <li class="flex items-start space-x-4">
+                            <span class="text-amber-400 font-bold">&bull;</span>
+                            <p>Do different types of failures have different effects on the service?</p>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Slide 11: Blank slide -->
+    <div id="slide11" class="min-h-screen flex items-center justify-center p-4">
+        <div class="w-full max-w-6xl text-center md:pr-12">
+            <!-- This is an empty slide for future content -->
+        </div>
+    </div>
+
+
+    <script>
+        // Array of slide IDs for easy navigation
+        const slideIds = ['slide1', 'slide2', 'slide3', 'slide4', 'slide5', 'slide6', 'slide7', 'slide8', 'slide9', 'slide10', 'slide11'];
+        // Get all slides and their content
+        const slides = document.querySelectorAll('body > div');
+        const chatContainer = document.getElementById('chat-container');
+        const agendaContainer = document.getElementById('agenda-list');
+        const navDots = document.querySelectorAll('#nav-dots .nav-dot');
+        const agendaItems = agendaContainer.querySelectorAll('.agenda-item');
+        const speechBubbles = chatContainer.querySelectorAll('.speech-bubble-left, .speech-bubble-right');
+        
+        let agendaStep = 0;
+        let chatStep = 0;
+
+        // Function to show a single chat bubble
+        function showChatBubble() {
+            if (chatStep < speechBubbles.length) {
+                speechBubbles[chatStep].style.opacity = '1';
+                speechBubbles[chatStep].style.transform = 'translateX(0)';
+                if (speechBubbles[chatStep].classList.contains('speech-bubble-left')) {
+                    speechBubbles[chatStep].style.animation = 'slideInLeft 0.5s forwards';
+                } else {
+                    speechBubbles[chatStep].style.animation = 'slideInRight 0.5s forwards';
+                }
+                chatStep++;
+            }
+        }
+
+        // Function to animate a single agenda item
+        function showAgendaItem() {
+            if (agendaStep < agendaItems.length) {
+                const item = agendaItems[agendaStep];
+                item.style.opacity = '1';
+                item.style.transform = 'translateX(0)';
+                agendaStep++;
+            }
+        }
+
+        // Function to reset animation states when navigating to a new slide
+        function resetAnimations(currentSlideId) {
+            // Reset chat bubbles for slide 2
+            if (currentSlideId !== 'slide2') {
+                speechBubbles.forEach(bubble => {
+                    bubble.style.opacity = '0';
+                    bubble.style.animation = 'none';
+                });
+                chatStep = 0;
+            }
+            
+            // Reset agenda items for slide 3
+            if (currentSlideId !== 'slide3') {
+                agendaItems.forEach(item => {
+                    item.style.opacity = '0';
+                    item.style.transform = 'translateX(20px)';
+                });
+                agendaStep = 0;
+            }
+        }
+
+        // Smooth scrolling function with animation logic
+        function scrollToSlide(slideId) {
+            const element = document.getElementById(slideId);
+            if (element) {
+                element.scrollIntoView({ behavior: 'smooth' });
+                
+                // Reset animations for other slides when scrolling
+                resetAnimations(slideId);
+
+                // Re-initialize animations for the new slide if needed
+                if (slideId === 'slide2') {
+                    showChatBubble(); // Show the first bubble immediately
+                } else if (slideId === 'slide3') {
+                    showAgendaItem(); // Show the first agenda item immediately
+                }
+            }
+        }
+
+        // Active state logic for navigation dots
+        window.addEventListener('scroll', () => {
+            let current = '';
+            
+            slides.forEach(section => {
+                const sectionTop = section.offsetTop;
+                const sectionHeight = section.clientHeight;
+                if (window.scrollY >= sectionTop - sectionHeight / 3) {
+                    current = section.getAttribute('id');
+                }
+            });
+
+            navDots.forEach(dot => {
+                dot.classList.remove('active');
+                if (dot.getAttribute('data-slide-id') === current) {
+                    dot.classList.add('active');
+                }
+            });
+        });
+
+        // Use Lucide to render the icons and trigger initial animation if on a specific slide
+        document.addEventListener('DOMContentLoaded', () => {
+            lucide.createIcons();
+            const urlHash = window.location.hash.substring(1);
+            if (urlHash === 'slide2' || (urlHash === '' && slides[1].getBoundingClientRect().top >= 0 && slides[1].getBoundingClientRect().top <= window.innerHeight)) {
+                showChatBubble(); // Show the first chat bubble on page load if on slide 2
+            }
+            if (urlHash === 'slide3' || (urlHash === '' && slides[2].getBoundingClientRect().top >= 0 && slides[2].getBoundingClientRect().top <= window.innerHeight)) {
+                showAgendaItem(); // Show the first agenda item if on slide 3
+            }
+        });
+    </script>
+</body>
+</html>
