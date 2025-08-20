@@ -146,10 +146,13 @@
             <li><button onclick="scrollToSlide('slide10')" class="nav-dot" data-slide-id="slide10" title="Measuring Risk"></button></li>
             <li><button onclick="scrollToSlide('slide11')" class="nav-dot" data-slide-id="slide11" title="Principle 2: Service Level Objectives"></button></li>
             <li><button onclick="scrollToSlide('slide12')" class="nav-dot" data-slide-id="slide12" title="Principle 3: Eliminating Toil"></button></li>
-            <li><button onclick="scrollToSlide('slide13')" class="nav-dot" data-slide-id="slide13" title="Principle 4: Monitoring"></button></li>
-            <li><button onclick="scrollToSlide('slide14')" class="nav-dot" data-slide-id="slide14" title="Principle 5: Automation"></button></li>
-            <li><button onclick="scrollToSlide('slide15')" class="nav-dot" data-slide-id="slide15" title="Principle 6: Release Engineering"></button></li>
-            <li><button onclick="scrollToSlide('slide16')" class="nav-dot" data-slide-id="slide16" title="Principle 7: Simplicity"></button></li>
+            <li><button onclick="scrollToSlide('slide13')" class="nav-dot" data-slide-id="slide13" title="Is Toil Always Bad?"></button></li>
+            <li><button onclick="scrollToSlide('slide14')" class="nav-dot" data-slide-id="slide14" title="Too much toil?"></button></li>
+            <li><button onclick="scrollToSlide(§'slide15')" class="nav-dot" data-slide-id="slide15" title="Principle 4: Monitoring"></button></li>
+            <li><button onclick="scrollToSlide('slide16')" class="nav-dot" data-slide-id="slide16" title="Principle 5: Automation"></button></li>
+            <li><button onclick="scrollToSlide('slide17')" class="nav-dot" data-slide-id="slide17" title="Principle 6: Release Engineering"></button></li>
+            <li><button onclick="scrollToSlide('slide18')" class="nav-dot" data-slide-id="slide18" title="Quote"></button></li>
+            <li><button onclick="scrollToSlide('slide19')" class="nav-dot" data-slide-id="slide19" title="Principle 7: Simplicity"></button></li>
 
         </ul>
     </nav>
@@ -225,31 +228,15 @@
                 <div class="bg-gray-800 p-6 rounded-xl shadow-lg transition-shadow duration-300" data-index="1">
                     <div class="flex items-center space-x-4 mb-2">
                         <i data-lucide="shield-check" class="w-8 h-8 text-emerald-400"></i>
-                        <h2 class="text-2xl font-bold">Why SRE is Important</h2>
+                        <h2 class="text-2xl font-bold">Why is it important</h2>
                     </div>
                     <p class="text-gray-400">Understanding the value and benefits of adopting SRE practices.</p>
-                </div>
-                <!-- Agenda Point 3 -->
-                <div class="bg-gray-800 p-6 rounded-xl shadow-lg transition-shadow duration-300" data-index="2">
-                    <div class="flex items-center space-x-4 mb-2">
-                        <i data-lucide="trending-up" class="w-8 h-8 text-yellow-400"></i>
-                        <h2 class="text-2xl font-bold">Real-World Example</h2>
-                    </div>
-                    <p class="text-gray-400">A look at how a major tech company implements SRE successfully.</p>
-                </div>
-                <!-- Agenda Point 4 -->
-                <div class="bg-gray-800 p-6 rounded-xl shadow-lg transition-shadow duration-300" data-index="3">
-                    <div class="flex items-center space-x-4 mb-2">
-                        <i data-lucide="dollar-sign" class="w-8 h-8 text-rose-400"></i>
-                        <h2 class="text-2xl font-bold">The Real Cost</h2>
-                    </div>
-                    <p class="text-gray-400">An examination of the financial impact of system maintenance.</p>
                 </div>
                 <!-- Agenda Point 5 -->
                 <div class="bg-gray-800 p-6 rounded-xl shadow-lg transition-shadow duration-300" data-index="4">
                     <div class="flex items-center space-x-4 mb-2">
                         <i data-lucide="layout-grid" class="w-8 h-8 text-purple-400"></i>
-                        <h2 class="text-2xl font-bold">SRE Guiding Principles</h2>
+                        <h2 class="text-2xl font-bold">Guiding principles</h2>
                     </div>
                     <p class="text-gray-400">The core philosophies and beliefs that drive SRE teams.</p>
                 </div>
@@ -257,9 +244,9 @@
                 <div class="bg-gray-800 p-6 rounded-xl shadow-lg transition-shadow duration-300" data-index="5">
                     <div class="flex items-center space-x-4 mb-2">
                         <i data-lucide="book-open-text" class="w-8 h-8 text-sky-400"></i>
-                        <h2 class="text-2xl font-bold">Core Terminology</h2>
+                        <h2 class="text-2xl font-bold">Use Case</h2>
                     </div>
-                    <p class="text-gray-400">Key terms and concepts every SRE team needs to know.</p>
+                    <p class="text-gray-400">Look at how we are implementing it in Shipment service</p>
                 </div>
             </div>
         </div>
@@ -560,40 +547,37 @@
 
             <!-- Content -->
             <div class="grid grid-cols-1 md:grid-cols-2 gap-8 text-left">
-                <!-- Card 1: Time-based availability -->
-                <div class="bg-gray-800 p-8 rounded-2xl shadow-xl border border-gray-700 transition duration-300 transform hover:scale-105 hover:shadow-2xl">
-                    <div class="flex items-center space-x-4 mb-4">
-                        <i data-lucide="clock" class="w-12 h-12 text-teal-400"></i>
-                        <h2 class="text-2xl font-bold text-gray-200">Title</h2>
+                <div class="bg-gray-800 p-6 rounded-xl shadow-lg transition-shadow duration-300" data-index="0">
+                    <div class="flex items-center space-x-4 mb-2">
+                        <i data-lucide="info" class="w-8 h-8 text-indigo-400"></i>
+                        <h2 class="text-2xl font-bold">SLA</h2>
                     </div>
-                    <p class="text-gray-400">Some dummy content</p>
+                    <p class="text-gray-400">An explicit or implicit contract with your users that includes consequences of meeting (or missing) the SLOs they contain.</p>
                 </div>
-
-                <!-- Card 2: Aggregate availability -->
-                <div class="bg-gray-800 p-8 rounded-2xl shadow-xl border border-gray-700 transition duration-300 transform hover:scale-105 hover:shadow-2xl">
-                    <div class="flex items-center space-x-4 mb-4">
-                        <i data-lucide="bar-chart-2" class="w-12 h-12 text-blue-400"></i>
-                        <h2 class="text-2xl font-bold text-gray-200">Title</h2>
+                <!-- Agenda Point 2 -->
+                <div class="bg-gray-800 p-6 rounded-xl shadow-lg transition-shadow duration-300" data-index="1">
+                    <div class="flex items-center space-x-4 mb-2">
+                        <i data-lucide="shield-check" class="w-8 h-8 text-emerald-400"></i>
+                        <h2 class="text-2xl font-bold">SLO</h2>
                     </div>
-                    <p class="text-gray-400">Some dummy content</p>
+                    <p class="text-gray-400">The expected service level of a system, job, and/or capability. It usually describes the required percentage of success of one or more SLIs within a given period of time.
+                    </p>
                 </div>
-
-                <!-- Card 3: Identifying the Risk Tolerance -->
-                <div class="bg-gray-800 p-8 rounded-2xl shadow-xl border border-gray-700 transition duration-300 transform hover:scale-105 hover:shadow-2xl md:col-span-2">
-                    <div class="flex items-center space-x-4 mb-4">
-                        <i data-lucide="award" class="w-12 h-12 text-amber-400"></i>
-                        <h2 class="text-2xl font-bold text-gray-200">Title</h2>
+                <!-- Agenda Point 5 -->
+                <div class="bg-gray-800 p-6 rounded-xl shadow-lg transition-shadow duration-300" data-index="4">
+                    <div class="flex items-center space-x-4 mb-2">
+                        <i data-lucide="layout-grid" class="w-8 h-8 text-purple-400"></i>
+                        <h2 class="text-2xl font-bold">SLI</h2>
                     </div>
-                    <ul class="text-gray-400 space-y-4">
-                        <li class="flex items-start space-x-4">
-                            <span class="text-amber-400 font-bold">&bull;</span>
-                            <p>Some dummy content</p>
-                        </li>
-                        <li class="flex items-start space-x-4">
-                            <span class="text-amber-400 font-bold">&bull;</span>
-                            <p>Some dummy content</p>
-                        </li>
-                    </ul>
+                    <p class="text-gray-400">A carefully defined quantitative measure of some aspect of the level of service that is provided. This may be latency, availability or error rates.</p>
+                </div>
+                <!-- Agenda Point 6 -->
+                <div class="bg-gray-800 p-6 rounded-xl shadow-lg transition-shadow duration-300" data-index="5">
+                    <div class="flex items-center space-x-4 mb-2">
+                        <i data-lucide="book-open-text" class="w-8 h-8 text-sky-400"></i>
+                        <h2 class="text-2xl font-bold">Error Budget</h2>
+                    </div>
+                    <p class="text-gray-400">A rate at which the SLOs can be missed and equates to the risk you are comfortable to take for a service.</p>
                 </div>
             </div>
         </div>
@@ -609,38 +593,28 @@
 
             <!-- Content -->
             <div class="grid grid-cols-1 md:grid-cols-2 gap-8 text-left">
-                <!-- Card 1: Time-based availability -->
-                <div class="bg-gray-800 p-8 rounded-2xl shadow-xl border border-gray-700 transition duration-300 transform hover:scale-105 hover:shadow-2xl">
-                    <div class="flex items-center space-x-4 mb-4">
-                        <i data-lucide="clock" class="w-12 h-12 text-teal-400"></i>
-                        <h2 class="text-2xl font-bold text-gray-200">Title</h2>
-                    </div>
-                    <p class="text-gray-400">Some dummy content</p>
-                </div>
-
-                <!-- Card 2: Aggregate availability -->
-                <div class="bg-gray-800 p-8 rounded-2xl shadow-xl border border-gray-700 transition duration-300 transform hover:scale-105 hover:shadow-2xl">
-                    <div class="flex items-center space-x-4 mb-4">
-                        <i data-lucide="bar-chart-2" class="w-12 h-12 text-blue-400"></i>
-                        <h2 class="text-2xl font-bold text-gray-200">Title</h2>
-                    </div>
-                    <p class="text-gray-400">Some dummy content</p>
-                </div>
-
                 <!-- Card 3: Identifying the Risk Tolerance -->
                 <div class="bg-gray-800 p-8 rounded-2xl shadow-xl border border-gray-700 transition duration-300 transform hover:scale-105 hover:shadow-2xl md:col-span-2">
                     <div class="flex items-center space-x-4 mb-4">
-                        <i data-lucide="award" class="w-12 h-12 text-amber-400"></i>
-                        <h2 class="text-2xl font-bold text-gray-200">Title</h2>
+                        <i data-lucide="book-open-text" class="w-12 h-12 text-amber-400"></i>
+                        <h2 class="text-2xl font-bold text-gray-200">What is Toil?</h2>
                     </div>
                     <ul class="text-gray-400 space-y-4">
                         <li class="flex items-start space-x-4">
                             <span class="text-amber-400 font-bold">&bull;</span>
-                            <p>Some dummy content</p>
+                            <p><b><i><u>Manual</u></i></b> - Running a script that automates some task</p>
                         </li>
                         <li class="flex items-start space-x-4">
                             <span class="text-amber-400 font-bold">&bull;</span>
-                            <p>Some dummy content</p>
+                            <p><b><i><u>Repetitive</u></i></b> - Batman tasks with recipes, or some newrelic alerts which have runbooks</p>
+                        </li>
+                        <li class="flex items-start space-x-4">
+                            <span class="text-amber-400 font-bold">&bull;</span>
+                            <p><b><i><u>Automatable</u></i></b> - If a machine could accomplish the task just as well as a human</p>
+                        </li>
+                        <li class="flex items-start space-x-4">
+                            <span class="text-amber-400 font-bold">&bull;</span>
+                            <p><b><i><u>No enduring value</u></i></b> - If your service remains in the same state after you have finished a task, the task was probably toil</p>
                         </li>
                     </ul>
                 </div>
@@ -648,8 +622,88 @@
         </div>
     </div>    
 
-    <!-- Slide 13: Principle 4: Monitoring -->
+    <!-- Slide 13: Is Toil Always Bad? -->
     <div id="slide13" class="min-h-screen flex items-center justify-center p-4">
+        <div class="w-full max-w-6xl text-center md:pr-12">
+            <!-- Slide Title -->
+            <h1 class="text-4xl sm:text-5xl lg:text-6xl font-bold mb-12 drop-shadow-lg text-transparent bg-clip-text bg-gradient-to-r from-cyan-400 to-green-400">
+                Is Toil Always Bad?
+            </h1>
+
+            <!-- Example Quote Card -->
+            <div class="bg-gray-800 p-12 rounded-2xl shadow-xl border border-gray-700 transition duration-300 transform hover:scale-105 hover:shadow-2xl">
+                <div class="icon-container mb-6 text-yellow-400">
+                    <i data-lucide="radiation" class="w-16 h-16"></i>
+                </div>
+                <p class="text-2xl sm:text-3xl lg:text-4xl font-semibold leading-relaxed text-gray-200">
+                    It’s fine in small doses, and if you’re happy with those small doses, toil is not a problem. <span class="text-green-400">Toil becomes toxic when experienced in large quantities.</span> If you’re burdened with too much toil, you should be very concerned and complain loudly.
+                </p>
+                <p class="mt-8 text-sm text-gray-500 italic">Source: Google SRE Book, Elimnating Toil</p>
+            </div>
+        </div>
+    </div>  
+
+    <!-- Slide 8: SRE Guiding Principles -->
+    <div id="slide14" class="min-h-screen flex items-center justify-center p-4">
+        <div class="w-full max-w-6xl text-center md:pr-12">
+            <!-- Slide Title -->
+            <h1 class="text-4xl sm:text-5xl lg:text-6xl font-bold mb-12 drop-shadow-lg text-transparent bg-clip-text bg-gradient-to-r from-emerald-400 to-green-400">
+                Too much toil?
+            </h1>
+
+            <!-- Grid of points -->
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+
+                <!-- Point 1: Embracing risk -->
+                <div class="bg-gray-800 p-8 rounded-2xl shadow-xl border border-gray-700 transition duration-300 transform hover:scale-105 hover:shadow-2xl">
+                    <div class="icon-container mb-4 text-rose-500">
+                        <i data-lucide="circle-pause" class="w-12 h-12"></i>
+                    </div>
+                    <h2 class="text-2xl font-bold mb-2">Career stagnation</h2>
+                    <p class="text-gray-400">Your career progress will slow down or grind to a halt if you spend too little time on projects</p>
+                </div>
+
+                <!-- Point 2: Service level objectives -->
+                <div class="bg-gray-800 p-8 rounded-2xl shadow-xl border border-gray-700 transition duration-300 transform hover:scale-105 hover:shadow-2xl">
+                    <div class="icon-container mb-4 text-amber-400">
+                        <i data-lucide="meh" class="w-12 h-12"></i>
+                    </div>
+                    <h2 class="text-2xl font-bold mb-2">Low morale</h2>
+                    <p class="text-gray-400">Too much toil leads to burnout, boredom, and discontent.</p>
+                </div>
+
+                <!-- Point 3: Eliminating toil -->
+                <div class="bg-gray-800 p-8 rounded-2xl shadow-xl border border-gray-700 transition duration-300 transform hover:scale-105 hover:shadow-2xl">
+                    <div class="icon-container mb-4 text-indigo-400">
+                        <i data-lucide="snail" class="w-12 h-12"></i>
+                    </div>
+                    <h2 class="text-2xl font-bold mb-2">Slows progress</h2>
+                    <p class="text-gray-400">Excessive toil makes a team less productive as they are busy doing manual work and firefighting</p>
+                </div>
+
+                <!-- Point 4: Monitoring -->
+                <div class="bg-gray-800 p-8 rounded-2xl shadow-xl border border-gray-700 transition duration-300 transform hover:scale-105 hover:shadow-2xl">
+                    <div class="icon-container mb-4 text-emerald-400">
+                        <i data-lucide="scale" class="w-12 h-12"></i>
+                    </div>
+                    <h2 class="text-2xl font-bold mb-2">Sets precedent</h2>
+                    <p class="text-gray-400">If you’re too willing to take on toil, your counterparts will have incentives to load you down with even more toil</p>
+                </div>
+
+                <!-- Point 5: Automation -->
+                <div class="bg-gray-800 p-8 rounded-2xl shadow-xl border border-gray-700 transition duration-300 transform hover:scale-105 hover:shadow-2xl">
+                    <div class="icon-container mb-4 text-sky-400">
+                        <i data-lucide="log-out" class="w-12 h-12"></i>
+                    </div>
+                    <h2 class="text-2xl font-bold mb-2">Promotes attrition</h2>
+                    <p class="text-gray-400">If you build too much toil into your team’s procedures, you motivate the team’s best engineers to start looking elsewhere for a more rewarding job</p>
+                </div>
+            </div>
+        </div>
+    </div>    
+
+    <!-- Slide 13: Principle 4: Monitoring -->
+    <div id="slide15" class="min-h-screen flex items-center justify-center p-4">
         <div class="w-full max-w-6xl text-center md:pr-12">
             <!-- Slide Title -->
             <h1 class="text-4xl sm:text-5xl lg:text-6xl font-bold mb-12 drop-shadow-lg text-transparent bg-clip-text bg-gradient-to-r from-fuchsia-400 to-pink-400">
@@ -658,47 +712,56 @@
 
             <!-- Content -->
             <div class="grid grid-cols-1 md:grid-cols-2 gap-8 text-left">
-                <!-- Card 1: Time-based availability -->
-                <div class="bg-gray-800 p-8 rounded-2xl shadow-xl border border-gray-700 transition duration-300 transform hover:scale-105 hover:shadow-2xl">
-                    <div class="flex items-center space-x-4 mb-4">
-                        <i data-lucide="clock" class="w-12 h-12 text-teal-400"></i>
-                        <h2 class="text-2xl font-bold text-gray-200">Title</h2>
-                    </div>
-                    <p class="text-gray-400">Some dummy content</p>
-                </div>
-
-                <!-- Card 2: Aggregate availability -->
-                <div class="bg-gray-800 p-8 rounded-2xl shadow-xl border border-gray-700 transition duration-300 transform hover:scale-105 hover:shadow-2xl">
-                    <div class="flex items-center space-x-4 mb-4">
-                        <i data-lucide="bar-chart-2" class="w-12 h-12 text-blue-400"></i>
-                        <h2 class="text-2xl font-bold text-gray-200">Title</h2>
-                    </div>
-                    <p class="text-gray-400">Some dummy content</p>
-                </div>
 
                 <!-- Card 3: Identifying the Risk Tolerance -->
                 <div class="bg-gray-800 p-8 rounded-2xl shadow-xl border border-gray-700 transition duration-300 transform hover:scale-105 hover:shadow-2xl md:col-span-2">
                     <div class="flex items-center space-x-4 mb-4">
-                        <i data-lucide="award" class="w-12 h-12 text-amber-400"></i>
-                        <h2 class="text-2xl font-bold text-gray-200">Title</h2>
+                        <i data-lucide="lightbulb" class="w-12 h-12 text-amber-400"></i>
+                        <h2 class="text-2xl font-bold text-gray-200">If you can only measure  <span class="text-yellow-400">four</span> metrics of your user-facing system, focus on these</h2>
                     </div>
-                    <ul class="text-gray-400 space-y-4">
-                        <li class="flex items-start space-x-4">
-                            <span class="text-amber-400 font-bold">&bull;</span>
-                            <p>Some dummy content</p>
-                        </li>
-                        <li class="flex items-start space-x-4">
-                            <span class="text-amber-400 font-bold">&bull;</span>
-                            <p>Some dummy content</p>
-                        </li>
-                    </ul>
+                </div>
+
+                <!-- Card 1: Latency -->
+                <div class="bg-gray-800 p-8 rounded-2xl shadow-xl border border-gray-700 transition duration-300 transform hover:scale-105 hover:shadow-2xl">
+                    <div class="flex items-center space-x-4 mb-4">
+                        <i data-lucide="clock" class="w-12 h-12 text-teal-400"></i>
+                        <h2 class="text-2xl font-bold text-gray-200">Latency</h2>
+                    </div>
+                    <p class="text-gray-400">The time it takes to service a request.  It’s important to distinguish between the latency of successful requests and the latency of failed requests</p>
+                </div>
+
+                <!-- Card 2: Traffic -->
+                <div class="bg-gray-800 p-8 rounded-2xl shadow-xl border border-gray-700 transition duration-300 transform hover:scale-105 hover:shadow-2xl">
+                    <div class="flex items-center space-x-4 mb-4">
+                        <i data-lucide="bar-chart-2" class="w-12 h-12 text-blue-400"></i>
+                        <h2 class="text-2xl font-bold text-gray-200">Traffic</h2>
+                    </div>
+                    <p class="text-gray-400">A measure of how much demand is being placed on your system, measured in a high-level system-specific metric. For a web service, this measurement is usually HTTP requests per second.</p>
+                </div>
+
+                <!-- Card 3: Errors -->
+                <div class="bg-gray-800 p-8 rounded-2xl shadow-xl border border-gray-700 transition duration-300 transform hover:scale-105 hover:shadow-2xl">
+                    <div class="flex items-center space-x-4 mb-4">
+                        <i data-lucide="circle-x" class="w-12 h-12 text-red-400"></i>
+                        <h2 class="text-2xl font-bold text-gray-200">Errors</h2>
+                    </div>
+                    <p class="text-gray-400">The rate of requests that fail, either explicitly (e.g., HTTP 500s), implicitly (for example, an HTTP 200 success response, but coupled with the wrong content), or by policy </p>
+                </div>
+
+                <!-- Card 4: Saturation -->
+                <div class="bg-gray-800 p-8 rounded-2xl shadow-xl border border-gray-700 transition duration-300 transform hover:scale-105 hover:shadow-2xl">
+                    <div class="flex items-center space-x-4 mb-4">
+                        <i data-lucide="glass-water" class="w-12 h-12 text-orange-400"></i>
+                        <h2 class="text-2xl font-bold text-gray-200">Saturation</h2>
+                    </div>
+                    <p class="text-gray-400">How "full" your service is. Many systems degrade in performance before they achieve 100% utilization</p>
                 </div>
             </div>
         </div>
     </div>
 
     <!-- Slide 14: Principle 5: Automation -->
-    <div id="slide14" class="min-h-screen flex items-center justify-center p-4">
+    <div id="slide16" class="min-h-screen flex items-center justify-center p-4">
         <div class="w-full max-w-6xl text-center md:pr-12">
             <!-- Slide Title -->
             <h1 class="text-4xl sm:text-5xl lg:text-6xl font-bold mb-12 drop-shadow-lg text-transparent bg-clip-text bg-gradient-to-r from-fuchsia-400 to-pink-400">
@@ -710,44 +773,37 @@
                 <!-- Card 1: Time-based availability -->
                 <div class="bg-gray-800 p-8 rounded-2xl shadow-xl border border-gray-700 transition duration-300 transform hover:scale-105 hover:shadow-2xl">
                     <div class="flex items-center space-x-4 mb-4">
-                        <i data-lucide="clock" class="w-12 h-12 text-teal-400"></i>
-                        <h2 class="text-2xl font-bold text-gray-200">Title</h2>
+                        <i data-lucide="repeat" class="w-12 h-12 text-teal-400"></i>
+                        <h2 class="text-2xl font-bold text-gray-200">Consistency</h2>
                     </div>
-                    <p class="text-gray-400">Some dummy content</p>
+                    <p class="text-gray-400">If repetitive, manual tasks, such as user batman updates, are accomplished by automation tools (Robo-Cutter), mistakes and inconsistencies can be nearly eliminated. A new employee might do things differently than an old one; a user might accidentally enter a value in the wrong field. An automated process will not.</p>
                 </div>
 
                 <!-- Card 2: Aggregate availability -->
                 <div class="bg-gray-800 p-8 rounded-2xl shadow-xl border border-gray-700 transition duration-300 transform hover:scale-105 hover:shadow-2xl">
                     <div class="flex items-center space-x-4 mb-4">
-                        <i data-lucide="bar-chart-2" class="w-12 h-12 text-blue-400"></i>
-                        <h2 class="text-2xl font-bold text-gray-200">Title</h2>
+                        <i data-lucide="trending-up" class="w-12 h-12 text-blue-400"></i>
+                        <h2 class="text-2xl font-bold text-gray-200">Scalability</h2>
                     </div>
-                    <p class="text-gray-400">Some dummy content</p>
+                    <p class="text-gray-400">If your volume increases exponetially, the workload for the human responsible for handling manual, repetitive tasks, also increases exponetially, pulling this employee away from other, potentially more valuable, aspects of the job. An automated system will not have this issue.</p>
                 </div>
 
                 <!-- Card 3: Identifying the Risk Tolerance -->
                 <div class="bg-gray-800 p-8 rounded-2xl shadow-xl border border-gray-700 transition duration-300 transform hover:scale-105 hover:shadow-2xl md:col-span-2">
                     <div class="flex items-center space-x-4 mb-4">
-                        <i data-lucide="award" class="w-12 h-12 text-amber-400"></i>
-                        <h2 class="text-2xl font-bold text-gray-200">Title</h2>
+                        <i data-lucide="circle-gauge" class="w-12 h-12 text-amber-400"></i>
+                        <h2 class="text-2xl font-bold text-amber-200">Speed</h2>
                     </div>
-                    <ul class="text-gray-400 space-y-4">
-                        <li class="flex items-start space-x-4">
-                            <span class="text-amber-400 font-bold">&bull;</span>
-                            <p>Some dummy content</p>
-                        </li>
-                        <li class="flex items-start space-x-4">
-                            <span class="text-amber-400 font-bold">&bull;</span>
-                            <p>Some dummy content</p>
-                        </li>
-                    </ul>
+                    <p class="text-gray-400">Certain tasks, such as finding and fixing bugs in code, can take a human a great deal of time. Automated software systems have the ability to monitor huge swathes of data, and can often detect errors more quickly than humans through advanced pattern recognition and other tools. Fixes can be applied just as quickly, often without any human involvement.
+
+                    </p>
                 </div>
             </div>
         </div>
     </div>  
     
     <!-- Slide 15: Principle 6: Release Engineering -->
-    <div id="slide15" class="min-h-screen flex items-center justify-center p-4">
+    <div id="slide17" class="min-h-screen flex items-center justify-center p-4">
         <div class="w-full max-w-6xl text-center md:pr-12">
             <!-- Slide Title -->
             <h1 class="text-4xl sm:text-5xl lg:text-6xl font-bold mb-12 drop-shadow-lg text-transparent bg-clip-text bg-gradient-to-r from-fuchsia-400 to-pink-400">
@@ -759,44 +815,62 @@
                 <!-- Card 1: Time-based availability -->
                 <div class="bg-gray-800 p-8 rounded-2xl shadow-xl border border-gray-700 transition duration-300 transform hover:scale-105 hover:shadow-2xl">
                     <div class="flex items-center space-x-4 mb-4">
-                        <i data-lucide="clock" class="w-12 h-12 text-teal-400"></i>
-                        <h2 class="text-2xl font-bold text-gray-200">Title</h2>
+                        <i data-lucide="hand-platter" class="w-12 h-12 text-white-400"></i>
+                        <h2 class="text-2xl font-bold text-gray-200">Self-Service Model</h2>
                     </div>
-                    <p class="text-gray-400">Some dummy content</p>
+                    <p class="text-gray-400">In order to work at scale, teams must be self-sufficient. Release processes can be automated to the point that they require minimal involvement by the engineers.</p>
                 </div>
 
                 <!-- Card 2: Aggregate availability -->
                 <div class="bg-gray-800 p-8 rounded-2xl shadow-xl border border-gray-700 transition duration-300 transform hover:scale-105 hover:shadow-2xl">
                     <div class="flex items-center space-x-4 mb-4">
-                        <i data-lucide="bar-chart-2" class="w-12 h-12 text-blue-400"></i>
-                        <h2 class="text-2xl font-bold text-gray-200">Title</h2>
+                        <i data-lucide="train-front" class="w-12 h-12 text-red-400"></i>
+                        <h2 class="text-2xl font-bold text-gray-200">High Velocity</h2>
                     </div>
-                    <p class="text-gray-400">Some dummy content</p>
+                    <p class="text-gray-400">Rrequent releases result in fewer changes between versions. This approach makes testing and troubleshooting easier</p>
                 </div>
 
-                <!-- Card 3: Identifying the Risk Tolerance -->
-                <div class="bg-gray-800 p-8 rounded-2xl shadow-xl border border-gray-700 transition duration-300 transform hover:scale-105 hover:shadow-2xl md:col-span-2">
+                <!-- Card 3: Aggregate availability -->
+                <div class="bg-gray-800 p-8 rounded-2xl shadow-xl border border-gray-700 transition duration-300 transform hover:scale-105 hover:shadow-2xl">
                     <div class="flex items-center space-x-4 mb-4">
-                        <i data-lucide="award" class="w-12 h-12 text-amber-400"></i>
-                        <h2 class="text-2xl font-bold text-gray-200">Title</h2>
+                        <i data-lucide="blocks" class="w-12 h-12 text-blue-400"></i>
+                        <h2 class="text-2xl font-bold text-gray-200">Hermetic Builds</h2>
                     </div>
-                    <ul class="text-gray-400 space-y-4">
-                        <li class="flex items-start space-x-4">
-                            <span class="text-amber-400 font-bold">&bull;</span>
-                            <p>Some dummy content</p>
-                        </li>
-                        <li class="flex items-start space-x-4">
-                            <span class="text-amber-400 font-bold">&bull;</span>
-                            <p>Some dummy content</p>
-                        </li>
-                    </ul>
+                    <p class="text-gray-400">Build processes should be fully independent of the build machine itself, using the most popular compilers, libraries and tools.</p>
+                </div>
+
+                <!-- Card 3: Aggregate availability -->
+                <div class="bg-gray-800 p-8 rounded-2xl shadow-xl border border-gray-700 transition duration-300 transform hover:scale-105 hover:shadow-2xl">
+                    <div class="flex items-center space-x-4 mb-4">
+                        <i data-lucide="monitor-check" class="w-12 h-12 text-green-400"></i>
+                        <h2 class="text-2xl font-bold text-gray-200">Standards & Policies</h2>
+                    </div>
+                    <p class="text-gray-400">For security reasons, it’s vital that there are checks on certain tasks, including deployment, changes in source code, new releases and changes to build configuration</p>
                 </div>
             </div>
         </div>
     </div>  
+
+    <!-- Slide 18: Simplicity -->
+    <div id="slide18" class="min-h-screen flex items-center justify-center p-4">
+        <div class="w-full max-w-6xl text-center md:pr-12">
+            <!-- Slide Title -->
+
+            <!-- Example Quote Card -->
+            <div class="bg-gray-800 p-12 rounded-2xl shadow-xl border border-gray-700 transition duration-300 transform hover:scale-105 hover:shadow-2xl">
+                <div class="icon-container mb-6 text-yellow-400">
+                    <i data-lucide="quote" class="w-16 h-16"></i>
+                </div>
+                <p class="text-2xl sm:text-3xl lg:text-4xl font-semibold leading-relaxed text-gray-200">
+                    The price of <span class="text-green-400">reliability</span> is the pursuit of the utmost simplicity.
+                </p>
+                <p class="mt-8 text-sm text-gray-500 italic">Source: C.A.R. Hoare, Turing Award lecture</p>
+            </div>
+        </div>
+    </div> 
     
     <!-- Slide 15: Principle 7: Simplicity -->
-    <div id="slide16" class="min-h-screen flex items-center justify-center p-4">
+    <div id="slide19" class="min-h-screen flex items-center justify-center p-4">
         <div class="w-full max-w-6xl text-center md:pr-12">
             <!-- Slide Title -->
             <h1 class="text-4xl sm:text-5xl lg:text-6xl font-bold mb-12 drop-shadow-lg text-transparent bg-clip-text bg-gradient-to-r from-fuchsia-400 to-pink-400">
@@ -808,44 +882,44 @@
                 <!-- Card 1: Time-based availability -->
                 <div class="bg-gray-800 p-8 rounded-2xl shadow-xl border border-gray-700 transition duration-300 transform hover:scale-105 hover:shadow-2xl">
                     <div class="flex items-center space-x-4 mb-4">
-                        <i data-lucide="clock" class="w-12 h-12 text-teal-400"></i>
-                        <h2 class="text-2xl font-bold text-gray-200">Title</h2>
+                        <i data-lucide="Delete" class="w-12 h-12 text-red-400"></i>
+                        <h2 class="text-2xl font-bold text-gray-200">Software bloat</h2>
                     </div>
-                    <p class="text-gray-400">Some dummy content</p>
+                    <p class="text-gray-400">A smaller project is easier to understand, easier to test, and frequently has fewer defects. Delete code when it is no longer useful.</p>
                 </div>
 
                 <!-- Card 2: Aggregate availability -->
                 <div class="bg-gray-800 p-8 rounded-2xl shadow-xl border border-gray-700 transition duration-300 transform hover:scale-105 hover:shadow-2xl">
                     <div class="flex items-center space-x-4 mb-4">
-                        <i data-lucide="bar-chart-2" class="w-12 h-12 text-blue-400"></i>
-                        <h2 class="text-2xl font-bold text-gray-200">Title</h2>
+                        <i data-lucide="webhook" class="w-12 h-12 text-blue-400"></i>
+                        <h2 class="text-2xl font-bold text-gray-200">Minimal APIs</h2>
                     </div>
-                    <p class="text-gray-400">Some dummy content</p>
+                    <p class="text-gray-400">Writing clear, minimal APIs is an essential aspect of managing simplicity in a software system.</p>
                 </div>
 
-                <!-- Card 3: Identifying the Risk Tolerance -->
-                <div class="bg-gray-800 p-8 rounded-2xl shadow-xl border border-gray-700 transition duration-300 transform hover:scale-105 hover:shadow-2xl md:col-span-2">
+                <!-- Card 3: Time-based availability -->
+                <div class="bg-gray-800 p-8 rounded-2xl shadow-xl border border-gray-700 transition duration-300 transform hover:scale-105 hover:shadow-2xl">
                     <div class="flex items-center space-x-4 mb-4">
-                        <i data-lucide="award" class="w-12 h-12 text-amber-400"></i>
-                        <h2 class="text-2xl font-bold text-gray-200">Title</h2>
+                        <i data-lucide="puzzle" class="w-12 h-12 text-amber-400"></i>
+                        <h2 class="text-2xl font-bold text-gray-200">Modularity</h2>
                     </div>
-                    <ul class="text-gray-400 space-y-4">
-                        <li class="flex items-start space-x-4">
-                            <span class="text-amber-400 font-bold">&bull;</span>
-                            <p>Some dummy content</p>
-                        </li>
-                        <li class="flex items-start space-x-4">
-                            <span class="text-amber-400 font-bold">&bull;</span>
-                            <p>Some dummy content</p>
-                        </li>
-                    </ul>
+                    <p class="text-gray-400">As a system grows more complex, the separation of responsibility between APIs and between systems becomes increasingly important.</p>
+                </div>
+
+                <!-- Card 4: Aggregate availability -->
+                <div class="bg-gray-800 p-8 rounded-2xl shadow-xl border border-gray-700 transition duration-300 transform hover:scale-105 hover:shadow-2xl">
+                    <div class="flex items-center space-x-4 mb-4">
+                        <i data-lucide="rocket" class="w-12 h-12 text-green-400"></i>
+                        <h2 class="text-2xl font-bold text-gray-200">Release Simplicity</h2>
+                    </div>
+                    <p class="text-gray-400">Simple releases are generally better than complicated releases. It is much easier to measure and understand the impact of a single change rather than a batch of changes released simultaneously.</p>
                 </div>
             </div>
         </div>
     </div>    
 
     <!-- Slide 11: Blank slide -->
-    <div id="slide12" class="min-h-screen flex items-center justify-center p-4">
+    <div id="slide20" class="min-h-screen flex items-center justify-center p-4">
         <div class="w-full max-w-6xl text-center md:pr-12">
             <!-- This is an empty slide for future content -->
         </div>
@@ -854,7 +928,7 @@
 
     <script>
         // Array of slide IDs for easy navigation
-        const slideIds = ['slide1', 'slide2', 'slide3', 'slide4', 'slide5', 'slide6', 'slide7', 'slide8', 'slide9', 'slide10', 'slide11', 'slide12', 'slide13', 'slide14', 'slide15', 'slide16'];
+        const slideIds = ['slide1', 'slide2', 'slide3', 'slide4', 'slide5', 'slide6', 'slide7', 'slide8', 'slide9', 'slide10', 'slide11', 'slide12', 'slide13', 'slide14', 'slide15', 'slide16', 'slide17', 'slide18', 'slide19'];
         // Get all slides and their content
         const slides = document.querySelectorAll('body > div');
         const chatContainer = document.getElementById('chat-container');
