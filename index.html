@@ -157,7 +157,9 @@
             <li><button onclick="scrollToSlide('slide21')" class="nav-dot" data-slide-id="slide21" title="Critical User Journey"></button></li>
             <li><button onclick="scrollToSlide('slide22')" class="nav-dot" data-slide-id="slide22" title="Shipment Service - Availability"></button></li>
             <li><button onclick="scrollToSlide('slide23')" class="nav-dot" data-slide-id="slide23" title="Weekly Alert Volume"></button></li>
-            <li><button onclick="scrollToSlide('slide24')" class="nav-dot" data-slide-id="slide24" title="Error Budget"></button></li>
+            <li><button onclick="scrollToSlide('slide24')" class="nav-dot" data-slide-id="slide24" title="Availability - Error Budget"></button></li>
+            <li><button onclick="scrollToSlide('slide24')" class="nav-dot" data-slide-id="slide25" title="Create Shipment - Latency"></button></li>
+            <li><button onclick="scrollToSlide('slide24')" class="nav-dot" data-slide-id="slide26" title="Create Shipment - Saturation"></button></li>
         </ul>
     </nav>
     
@@ -1013,8 +1015,10 @@
                     <p class="text-gray-400">Success Baseline SLI</p>
                 </div>
             </div>
-        </div>
+            <p class="mt-8 text-sm text-gray-500 italic">Source: Newrelic, Create Shipment Lambda statistics for past 1 month</p>
+        </div>        
     </div>
+
 
     <!-- Slide 18: Simplicity -->
     <div id="slide23" class="min-h-screen flex items-center justify-center p-4">
@@ -1080,9 +1084,87 @@
         </div>
     </div>
 
+    <!-- Slide 9: Critical user journey -->
+    <div id="slide25" class="min-h-screen flex items-center justify-center p-4">
+        <div class="w-full max-w-6xl text-center md:pr-12">
+            <!-- Slide Title -->
+            <h1 class="text-4xl sm:text-5xl lg:text-6xl font-bold mb-12 drop-shadow-lg text-transparent bg-clip-text bg-gradient-to-r from-indigo-400 to-violet-500">
+                Create Shipment - Latency
+            </h1>
+
+            <!-- Table Container -->
+            <div class="w-full overflow-x-auto rounded-xl shadow-xl border border-gray-700">
+                <table class="w-full text-left text-gray-400">
+                    <thead class="text-xl text-gray-200 uppercase bg-gray-700">
+                        <tr>
+                            <th scope="col" class="px-6 py-3">Percentile</th>
+                            <th scope="col" class="px-6 py-3">Duration</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr class="bg-gray-800 border-b border-gray-700">
+                            <td class="px-6 py-4">90th Percentile</td>
+                            <td class="px-6 py-4">0.68 Seconds</td>
+                        </tr>
+                        <tr class="bg-green-800 border-b border-gray-700">
+                            <td class="px-6 py-4">95th Percentile</td>
+                            <td class="px-6 py-4">0.914 Seconds</td>
+                        </tr>
+                        <tr class="bg-gray-800">
+                            <td class="px-6 py-4">99th Percentile</td>
+                            <td class="px-6 py-4">1.641 Errors</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+            <p class="mt-8 text-sm text-gray-500 italic"><p class="mt-8 text-sm text-gray-500 italic">Source: Newrelic, create shipment lambda function latency over past 1 month</p></p>
+        </div>
+    </div>
+
+    <!-- Slide 12: Principle 3: Eliminating Toil -->
+    <div id="slide26" class="min-h-screen flex items-center justify-center p-4">
+        <div class="w-full max-w-6xl text-center md:pr-12">
+            <!-- Slide Title -->
+            <h1 class="text-4xl sm:text-5xl lg:text-6xl font-bold mb-12 drop-shadow-lg text-transparent bg-clip-text bg-gradient-to-r from-fuchsia-400 to-pink-400">
+                Shipment Service - Saturation
+            </h1>
+
+            <!-- Table Container -->
+            <div class="w-full overflow-x-auto rounded-xl shadow-xl border border-gray-700">
+                <table class="w-full text-left text-gray-400">
+                    <thead class="text-xl text-gray-200 uppercase bg-gray-700">
+                        <tr>
+                            <th scope="col" class="px-6 py-3">Duration</th>
+                            <th scope="col" class="px-6 py-3">Execution Window</th>
+                            <th scope="col" class="px-6 py-3">Saturation</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr class="bg-gray-800 border-b border-gray-700">
+                            <td class="px-6 py-4">0.68 Seconds</td>
+                            <td class="px-6 py-4">8am - 4:30pm (30,600 seconds)</td>
+                            <td class="px-6 py-4">45,000 shipments</td>
+                        </tr>
+                        <tr class="bg-green-800 border-b border-gray-700">
+                            <td class="px-6 py-4">0.914 Seconds</td>
+                            <td class="px-6 py-4">8am - 4:30pm (30,600 seconds)</td>
+                            <td class="px-6 py-4">33,479 shipments</td>
+                        </tr>
+                        <tr class="bg-gray-800">
+                            <td class="px-6 py-4">1.641 Errors</td>
+                            <td class="px-6 py-4">8am - 4:30pm (30,600 seconds)</td>
+                            <td class="px-6 py-4">18,647 shipments</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+            <p class="mt-8 text-sm text-gray-500 italic"><p class="mt-8 text-sm text-gray-500 italic">Note: Create shipment lambda uses unreserved concurrency</p></p>
+        </div>
+    </div>    
+
     <script>
         // Array of slide IDs for easy navigation
-        const slideIds = ['slide1', 'slide2', 'slide3', 'slide4', 'slide5', 'slide6', 'slide7', 'slide8', 'slide9', 'slide10', 'slide11', 'slide12', 'slide13', 'slide14', 'slide15', 'slide16', 'slide17', 'slide18', 'slide19', 'slide20', 'slide21', 'slide22', 'slide23', 'slide24'];
+        const slideIds = ['slide1', 'slide2', 'slide3', 'slide4', 'slide5', 'slide6', 'slide7', 'slide8', 'slide9', 'slide10', 'slide11', 'slide12', 'slide13', 'slide14', 'slide15', 'slide16', 'slide17', 'slide18', 'slide19', 'slide20', 'slide21', 'slide22', 'slide23', 'slide24', 'slide25', 'slide26'];
         // Get all slides and their content
         const slides = document.querySelectorAll('body > div');
         const chatContainer = document.getElementById('chat-container');
