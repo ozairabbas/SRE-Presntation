@@ -154,6 +154,8 @@
             <li><button onclick="scrollToSlide('slide18')" class="nav-dot" data-slide-id="slide18" title="Quote"></button></li>
             <li><button onclick="scrollToSlide('slide19')" class="nav-dot" data-slide-id="slide19" title="Principle 7: Simplicity"></button></li>
             <li><button onclick="scrollToSlide('slide20')" class="nav-dot" data-slide-id="slide20" title="Use Case"></button></li>
+            <li><button onclick="scrollToSlide('slide21')" class="nav-dot" data-slide-id="slide21" title="Critical User Journey"></button></li>
+            <li><button onclick="scrollToSlide('slide22')" class="nav-dot" data-slide-id="slide22" title="Shipment Service - Availability"></button></li>
         </ul>
     </nav>
     
@@ -930,8 +932,89 @@
         </div>
     </div>
 
-    <!-- Slide 11: Blank slide -->
+    <!-- Slide 9: Critical user journey -->
     <div id="slide21" class="min-h-screen flex items-center justify-center p-4">
+        <div class="w-full max-w-6xl text-center md:pr-12">
+            <!-- Slide Title -->
+            <h1 class="text-4xl sm:text-5xl lg:text-6xl font-bold mb-12 drop-shadow-lg text-transparent bg-clip-text bg-gradient-to-r from-indigo-400 to-violet-500">
+                Critical user journey
+            </h1>
+
+            <!-- Table Container -->
+            <div class="w-full overflow-x-auto rounded-xl shadow-xl border border-gray-700">
+                <table class="w-full text-left text-gray-400">
+                    <thead class="text-xl text-gray-200 uppercase bg-gray-700">
+                        <tr>
+                            <th scope="col" class="px-6 py-3">Critical capability</th>
+                            <th scope="col" class="px-6 py-3">Description</th>
+                            <th scope="col" class="px-6 py-3">Sync/Async</th>
+                            <th scope="col" class="px-6 py-3">Priority</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr class="bg-gray-800 border-b border-gray-700">
+                            <td class="px-6 py-4">Create shipment</td>
+                            <td class="px-6 py-4">Create shipment with RoyalMail</td>
+                            <td class="px-6 py-4">Synchronous</td>
+                            <td class="px-6 py-4">1</td>
+                        </tr>
+                        <tr class="bg-gray-800 border-b border-gray-700">
+                            <td class="px-6 py-4">Cancel shipment</td>
+                            <td class="px-6 py-4">Cancel shipment with RoyalMail</td>
+                            <td class="px-6 py-4">Synchronous</td>
+                            <td class="px-6 py-4">1</td>
+                        </tr>
+                        <tr class="bg-gray-800 border-b border-gray-700">
+                            <td class="px-6 py-4">Download TDF</td>
+                            <td class="px-6 py-4">Download TDF from RoyalMail</td>
+                            <td class="px-6 py-4">Asynchronous</td>
+                            <td class="px-6 py-4">2</td>
+                        </tr>
+                        <tr class="bg-gray-800">
+                            <td class="px-6 py-4">Process TDF</td>
+                            <td class="px-6 py-4">Process downloaded TDF file</td>
+                            <td class="px-6 py-4">Asynchronous</td>
+                            <td class="px-6 py-4">2</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>    
+
+    <!-- Slide 11: Create Shipment - Availability -->
+    <div id="slide22" class="min-h-screen flex items-center justify-center p-4">
+        <div class="w-full max-w-6xl text-center md:pr-12">
+            <h1 class="text-4xl sm:text-5xl lg:text-6xl font-bold mb-12 drop-shadow-lg text-transparent bg-clip-text bg-gradient-to-r from-indigo-400 to-violet-500">
+                Create Shipment - Availability
+            </h1>
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+                <div class="bg-gray-800 p-8 rounded-2xl shadow-xl border border-gray-700">
+                    <div class="icon-container mb-4">
+                        <i data-lucide="check-circle" class="w-16 h-16 text-emerald-400"></i>
+                    </div>
+                    <p class="text-4xl font-bold text-gray-200">34 K</p>
+                    <p class="text-gray-400">Successful calls</p>
+                </div>
+                <div class="bg-gray-800 p-8 rounded-2xl shadow-xl border border-gray-700">
+                    <div class="icon-container mb-4">
+                        <i data-lucide="x-circle" class="w-16 h-16 text-rose-500"></i>
+                    </div>
+                    <p class="text-4xl font-bold text-gray-200">96</p>
+                    <p class="text-gray-400">Unsuccessful calls</p>
+                </div>
+                <div class="bg-gray-800 p-8 rounded-2xl shadow-xl border border-gray-700">
+                    <div class="icon-container mb-4">
+                        <i data-lucide="gauge" class="w-16 h-16 text-amber-400"></i>
+                    </div>
+                    <p class="text-4xl font-bold text-gray-200">99.71%</p>
+                    <p class="text-gray-400">Success Baseline SLI</p>
+                </div>
+            </div>
+        </div>
+
+    <!-- Slide 11: Blank slide -->
+    <div id="slide23" class="min-h-screen flex items-center justify-center p-4">
         <div class="w-full max-w-6xl text-center md:pr-12">
             <!-- This is an empty slide for future content -->
         </div>
@@ -940,7 +1023,7 @@
 
     <script>
         // Array of slide IDs for easy navigation
-        const slideIds = ['slide1', 'slide2', 'slide3', 'slide4', 'slide5', 'slide6', 'slide7', 'slide8', 'slide9', 'slide10', 'slide11', 'slide12', 'slide13', 'slide14', 'slide15', 'slide16', 'slide17', 'slide18', 'slide19'];
+        const slideIds = ['slide1', 'slide2', 'slide3', 'slide4', 'slide5', 'slide6', 'slide7', 'slide8', 'slide9', 'slide10', 'slide11', 'slide12', 'slide13', 'slide14', 'slide15', 'slide16', 'slide17', 'slide18', 'slide19', 'slide20', 'slide21', 'slide22', 'slide23'];
         // Get all slides and their content
         const slides = document.querySelectorAll('body > div');
         const chatContainer = document.getElementById('chat-container');
