@@ -161,6 +161,7 @@
             <li><button onclick="scrollToSlide('slide25')" class="nav-dot" data-slide-id="slide25" title="Create Shipment - Latency"></button></li>
             <li><button onclick="scrollToSlide('slide26')" class="nav-dot" data-slide-id="slide26" title="Create Shipment - Saturation"></button></li>
             <li><button onclick="scrollToSlide('slide27')" class="nav-dot" data-slide-id="slide27" title="Create Shipment - Service Levels"></button></li>
+            <li><button onclick="scrollToSlide('slide28')" class="nav-dot" data-slide-id="slide28" title="Reducing toil through automation"></button></li>
         </ul>
     </nav>
     
@@ -1186,10 +1187,26 @@
         </div>
     </div> 
 
+    <!-- Slide 18: Simplicity -->
+    <div id="slide28" class="min-h-screen flex items-center justify-center p-4">
+        <div class="w-full max-w-6xl text-center md:pr-12">
+            <!-- Slide Title -->
+            <h1 class="text-4xl sm:text-5xl lg:text-6xl font-bold mb-12 drop-shadow-lg text-transparent bg-clip-text bg-gradient-to-r from-fuchsia-400 to-pink-400">
+                Reducing toil through automation
+            </h1>
+            <!-- Example Quote Card -->
+            <div class="bg-gray-800 p-12 rounded-2xl shadow-xl border border-gray-700 transition duration-300 transform hover:scale-105 hover:shadow-2xl">
+                <p class="text-2xl sm:text-3xl lg:text-4xl font-semibold leading-relaxed text-gray-200">
+                <img src="images/reducing-toil-throun-automation.png"/>    
+                </p>
+                <p class="mt-8 text-sm text-gray-500 italic">Source: Jira, <a href="https://zavamed.atlassian.net/browse/ION-1493" target="_blank">Send a slack message to #all-things-customer slack channel when creating shipment fails</a></p>
+            </div>
+        </div>
+    </div> 
 
     <script>
         // Array of slide IDs for easy navigation
-        const slideIds = ['slide1', 'slide2', 'slide3', 'slide4', 'slide5', 'slide6', 'slide7', 'slide8', 'slide9', 'slide10', 'slide11', 'slide12', 'slide13', 'slide14', 'slide15', 'slide16', 'slide17', 'slide18', 'slide19', 'slide20', 'slide21', 'slide22', 'slide23', 'slide24', 'slide25', 'slide26', 'slide27'];
+        const slideIds = ['slide1', 'slide2', 'slide3', 'slide4', 'slide5', 'slide6', 'slide7', 'slide8', 'slide9', 'slide10', 'slide11', 'slide12', 'slide13', 'slide14', 'slide15', 'slide16', 'slide17', 'slide18', 'slide19', 'slide20', 'slide21', 'slide22', 'slide23', 'slide24', 'slide25', 'slide26', 'slide27', 'slide28'];
         // Get all slides and their content
         const slides = document.querySelectorAll('body > div');
         const chatContainer = document.getElementById('chat-container');
