@@ -33,8 +33,8 @@
 
         .nav-dot {
             position: relative;
-            width: 12px;
-            height: 12px;
+            width: 10px;
+            height: 10px;
             border-radius: 50%;
             background-color: #4b5563; /* gray-600 */
             transition: all 0.3s ease;
@@ -133,7 +133,7 @@
 
     <!-- Fixed Navigation Dots -->
     <nav class="fixed right-4 top-1/2 -translate-y-1/2 z-50 hidden md:block">
-        <ul id="nav-dots" class="flex flex-col space-y-1">
+        <ul id="nav-dots" class="flex flex-col space-y-1/2">
             <li><button onclick="scrollToSlide('slide1')" class="nav-dot active" data-slide-id="slide1" title="Title Slide"></button></li>
             <li><button onclick="scrollToSlide('slide2')" class="nav-dot" data-slide-id="slide2" title="Real-World Scenario"></button></li>
             <li><button onclick="scrollToSlide('slide3')" class="nav-dot" data-slide-id="slide3" title="Agenda"></button></li>
@@ -158,8 +158,8 @@
             <li><button onclick="scrollToSlide('slide22')" class="nav-dot" data-slide-id="slide22" title="Shipment Service - Availability"></button></li>
             <li><button onclick="scrollToSlide('slide23')" class="nav-dot" data-slide-id="slide23" title="Weekly Alert Volume"></button></li>
             <li><button onclick="scrollToSlide('slide24')" class="nav-dot" data-slide-id="slide24" title="Availability - Error Budget"></button></li>
-            <li><button onclick="scrollToSlide('slide24')" class="nav-dot" data-slide-id="slide25" title="Create Shipment - Latency"></button></li>
-            <li><button onclick="scrollToSlide('slide24')" class="nav-dot" data-slide-id="slide26" title="Create Shipment - Saturation"></button></li>
+            <li><button onclick="scrollToSlide('slide25')" class="nav-dot" data-slide-id="slide25" title="Create Shipment - Latency"></button></li>
+            <li><button onclick="scrollToSlide('slide26')" class="nav-dot" data-slide-id="slide26" title="Create Shipment - Saturation"></button></li>
         </ul>
     </nav>
     
@@ -1143,17 +1143,17 @@
                         <tr class="bg-gray-800 border-b border-gray-700">
                             <td class="px-6 py-4">0.68 Seconds</td>
                             <td class="px-6 py-4">8am - 4:30pm (30,600 seconds)</td>
-                            <td class="px-6 py-4">45,000 shipments</td>
+                            <td class="px-6 py-4">45,000 shipments per day</td>
                         </tr>
                         <tr class="bg-green-800 border-b border-gray-700">
                             <td class="px-6 py-4">0.914 Seconds</td>
                             <td class="px-6 py-4">8am - 4:30pm (30,600 seconds)</td>
-                            <td class="px-6 py-4">33,479 shipments</td>
+                            <td class="px-6 py-4">33,479 shipments per day</td>
                         </tr>
                         <tr class="bg-gray-800">
                             <td class="px-6 py-4">1.641 Errors</td>
                             <td class="px-6 py-4">8am - 4:30pm (30,600 seconds)</td>
-                            <td class="px-6 py-4">18,647 shipments</td>
+                            <td class="px-6 py-4">18,647 shipments per day</td>
                         </tr>
                     </tbody>
                 </table>
