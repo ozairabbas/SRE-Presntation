@@ -165,6 +165,7 @@
             <li><button onclick="scrollToSlide('slide29')" class="nav-dot" data-slide-id="slide29" title="Monitoring workloads"></button></li>
             <li><button onclick="scrollToSlide('slide30')" class="nav-dot" data-slide-id="slide30" title="Monitoring service levels"></button></li>
             <li><button onclick="scrollToSlide('slide31')" class="nav-dot" data-slide-id="slide31" title="Analyzing Cost"></button></li>
+            <li><button onclick="scrollToSlide('slide32')" class="nav-dot" data-slide-id="slide32" title="Testimonial"></button></li>
         </ul>
     </nav>
     
@@ -1256,11 +1257,54 @@
                 <p class="mt-8 text-sm text-gray-500 italic">Source: AWS Cost Explorer</p>
             </div>
         </div>
+    </div>
+    
+    <!-- Slide 2: A Real-World Scenario -->
+    <div id="slide32" class="min-h-screen flex items-center justify-center p-4">
+        <div class="w-full max-w-6xl text-center md:pr-12">
+            <div class="icon-container mb-6 text-yellow-400">
+                <i data-lucide="star" class="w-16 h-16"></i>
+                <i data-lucide="star" class="w-16 h-16"></i>
+                <i data-lucide="star" class="w-16 h-16"></i>
+                <i data-lucide="star" class="w-16 h-16"></i>
+                <i data-lucide="star" class="w-16 h-16"></i>
+            </div>
+            <div class="icon-container mb-6 text-yellow-400">    
+            </div>
+            <div class="space-y-8" id="chat-container">
+                <!-- Oscar Message (Left) -->
+                <div class="flex justify-start">
+                    <div class="speech-bubble-left text-left text-gray-200" id="oscar-bubble">
+                        <p><span class="font-bold text-emerald-300">Oscar:</span> Before automation, I wasted hours every week forwarding New Relic alerts to PCA. Now it’s all automatic — I can finally focus on writing code, not copy-pasting errors.</p>
+                    </div>
+                </div>
+
+                <!-- Uzor's Reply 1 (Right) -->
+                <div class="flex justify-end">
+                    <div class="speech-bubble-right text-left text-white" id="syed-bubble-1">
+                        <p><span class="font-bold text-sky-300">Uzor:</span> Setting up the SLOs once saved us from endless manual triaging. No more late-night pings just to push the message through to PCAs</p>
+                    </div>
+                </div>
+
+                <!-- Gabor's Reply 2 (Right) -->
+                <div class="flex justify-start">
+                    <div class="speech-bubble-left text-left text-gray-200" id="oscar-bubble">
+                        <p><span class="font-bold text-emerald-300">Gabor:</span> Obwohl ich nicht zum Backend-Team gehöre, hat die Automatisierung für alle viel Lärm reduziert. Wir erfahren jetzt tatsächlich schneller von echten Problemen.</p>
+                    </div>
+                </div>
+                <!-- Syed's Reply 3 (Right) -->
+                <div class="flex justify-end">
+                    <div class="speech-bubble-right text-right text-white" id="syed-bubble-3">
+                        <p><span class="font-bold text-sky-300">Kiran:</span> Getting instant alerts about shipment errors has been a game-changer. I can reach out to patients right away and fix issues before they even call us. It makes our support faster and patients much happier.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
     </div>    
 
     <script>
         // Array of slide IDs for easy navigation
-        const slideIds = ['slide1', 'slide2', 'slide3', 'slide4', 'slide5', 'slide6', 'slide7', 'slide8', 'slide9', 'slide10', 'slide11', 'slide12', 'slide13', 'slide14', 'slide15', 'slide16', 'slide17', 'slide18', 'slide19', 'slide20', 'slide21', 'slide22', 'slide23', 'slide24', 'slide25', 'slide26', 'slide27', 'slide28', 'slide29', 'slide30', 'slide31'];
+        const slideIds = ['slide1', 'slide2', 'slide3', 'slide4', 'slide5', 'slide6', 'slide7', 'slide8', 'slide9', 'slide10', 'slide11', 'slide12', 'slide13', 'slide14', 'slide15', 'slide16', 'slide17', 'slide18', 'slide19', 'slide20', 'slide21', 'slide22', 'slide23', 'slide24', 'slide25', 'slide26', 'slide27', 'slide28', 'slide29', 'slide30', 'slide31', 'slide32'];
         // Get all slides and their content
         const slides = document.querySelectorAll('body > div');
         const chatContainer = document.getElementById('chat-container');
