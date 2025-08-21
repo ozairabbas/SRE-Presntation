@@ -162,6 +162,9 @@
             <li><button onclick="scrollToSlide('slide26')" class="nav-dot" data-slide-id="slide26" title="Create Shipment - Saturation"></button></li>
             <li><button onclick="scrollToSlide('slide27')" class="nav-dot" data-slide-id="slide27" title="Create Shipment - Service Levels"></button></li>
             <li><button onclick="scrollToSlide('slide28')" class="nav-dot" data-slide-id="slide28" title="Reducing toil through automation"></button></li>
+            <li><button onclick="scrollToSlide('slide29')" class="nav-dot" data-slide-id="slide29" title="Monitoring workloads"></button></li>
+            <li><button onclick="scrollToSlide('slide30')" class="nav-dot" data-slide-id="slide30" title="Monitoring service levels"></button></li>
+            <li><button onclick="scrollToSlide('slide31')" class="nav-dot" data-slide-id="slide31" title="Analyzing Cost"></button></li>
         </ul>
     </nav>
     
@@ -1204,9 +1207,60 @@
         </div>
     </div> 
 
+    <!-- Slide 18: Simplicity -->
+    <div id="slide29" class="min-h-screen flex items-center justify-center p-4">
+        <div class="w-full max-w-6xl text-center md:pr-12">
+            <!-- Slide Title -->
+            <h1 class="text-4xl sm:text-5xl lg:text-6xl font-bold mb-12 drop-shadow-lg text-transparent bg-clip-text bg-gradient-to-r from-fuchsia-400 to-pink-400">
+                Monitoring workloads
+            </h1>
+            <!-- Example Quote Card -->
+            <div class="bg-gray-800 p-12 rounded-2xl shadow-xl border border-gray-700 transition duration-300 transform hover:scale-105 hover:shadow-2xl">
+                <p class="text-2xl sm:text-3xl lg:text-4xl font-semibold leading-relaxed text-gray-200">
+                <img src="images/capabilities-workloads.png"/>    
+                </p>
+                <p class="mt-8 text-sm text-gray-500 italic">Source: NewRelic, <a href="https://onenr.io/0oR8pg61aRG" target="_blank">Domain workloads</a></p>
+            </div>
+        </div>
+    </div>
+
+    <!-- Slide 18: Simplicity -->
+    <div id="slide30" class="min-h-screen flex items-center justify-center p-4">
+        <div class="w-full max-w-6xl text-center md:pr-12">
+            <!-- Slide Title -->
+            <h1 class="text-4xl sm:text-5xl lg:text-6xl font-bold mb-12 drop-shadow-lg text-transparent bg-clip-text bg-gradient-to-r from-fuchsia-400 to-pink-400">
+                Monitoring service levels
+            </h1>
+            <!-- Example Quote Card -->
+            <div class="bg-gray-800 p-12 rounded-2xl shadow-xl border border-gray-700 transition duration-300 transform hover:scale-105 hover:shadow-2xl">
+                <p class="text-2xl sm:text-3xl lg:text-4xl font-semibold leading-relaxed text-gray-200">
+                <img src="images/delivery-and-shipment-domain-workload.png"/>    
+                </p>
+                <p class="mt-8 text-sm text-gray-500 italic">Source: NewRelic, <a href="https://onenr.io/07jbLDaJnwy" target="_blank">Delivery and shipment domain workload</a></p>
+            </div>
+        </div>
+    </div>
+
+    <!-- Slide 18: Simplicity -->
+    <div id="slide31" class="min-h-screen flex items-center justify-center p-4">
+        <div class="w-full max-w-6xl text-center md:pr-12">
+            <!-- Slide Title -->
+            <h1 class="text-4xl sm:text-5xl lg:text-6xl font-bold mb-12 drop-shadow-lg text-transparent bg-clip-text bg-gradient-to-r from-fuchsia-400 to-pink-400">
+                Analyzing Cost
+            </h1>
+            <!-- Example Quote Card -->
+            <div class="bg-gray-800 p-12 rounded-2xl shadow-xl border border-gray-700 transition duration-300 transform hover:scale-105 hover:shadow-2xl">
+                <p class="text-2xl sm:text-3xl lg:text-4xl font-semibold leading-relaxed text-gray-200">
+                <img src="images/cost-analysis.png"/>    
+                </p>
+                <p class="mt-8 text-sm text-gray-500 italic">Source: AWS Cost Explorer</p>
+            </div>
+        </div>
+    </div>    
+
     <script>
         // Array of slide IDs for easy navigation
-        const slideIds = ['slide1', 'slide2', 'slide3', 'slide4', 'slide5', 'slide6', 'slide7', 'slide8', 'slide9', 'slide10', 'slide11', 'slide12', 'slide13', 'slide14', 'slide15', 'slide16', 'slide17', 'slide18', 'slide19', 'slide20', 'slide21', 'slide22', 'slide23', 'slide24', 'slide25', 'slide26', 'slide27', 'slide28'];
+        const slideIds = ['slide1', 'slide2', 'slide3', 'slide4', 'slide5', 'slide6', 'slide7', 'slide8', 'slide9', 'slide10', 'slide11', 'slide12', 'slide13', 'slide14', 'slide15', 'slide16', 'slide17', 'slide18', 'slide19', 'slide20', 'slide21', 'slide22', 'slide23', 'slide24', 'slide25', 'slide26', 'slide27', 'slide28', 'slide29', 'slide30', 'slide31'];
         // Get all slides and their content
         const slides = document.querySelectorAll('body > div');
         const chatContainer = document.getElementById('chat-container');
