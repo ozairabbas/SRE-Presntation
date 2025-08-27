@@ -73,18 +73,18 @@
             visibility: visible;
         }
         
-        .speech-bubble-left, .speech-bubble-right {
+        .speech-bubble-left, .speech-bubble-right, .testimonial-bubble-left, .testimonial-bubble-right {
             position: relative;
             border-radius: 1rem;
             padding: 1rem;
             max-width: 75%;
         }
         
-        .speech-bubble-left {
+        .speech-bubble-left, .testimonial-bubble-left {
             background-color: #374151; /* slate-700 */
         }
 
-        .speech-bubble-left:before {
+        .speech-bubble-left:before, .testimonial-bubble-left:before {
             content: "";
             position: absolute;
             top: 50%;
@@ -97,11 +97,11 @@
             transform: translateY(-50%);
         }
         
-        .speech-bubble-right {
+        .speech-bubble-right, .testimonial-bubble-right {
             background-color: #1d4ed8; /* blue-700 */
         }
 
-        .speech-bubble-right:before {
+        .speech-bubble-right:before, .testimonial-bubble-right:before {
             content: "";
             position: absolute;
             top: 50%;
@@ -1351,30 +1351,30 @@
             </div>
             <div class="icon-container mb-6 text-yellow-400">    
             </div>
-            <div class="space-y-8" id="chat-container">
+            <div class="space-y-8" id="testimonial-container">
                 <!-- Oscar Message (Left) -->
                 <div class="flex justify-start">
-                    <div class="speech-bubble-left text-left text-gray-200" id="oscar-bubble">
+                    <div class="testimonial-bubble-left text-left text-gray-200" id="oscar-bubble">
                         <p><span class="font-bold text-emerald-300">Oscar:</span> Before automation, I wasted hours every week forwarding New Relic alerts to PCA. Now it’s all automatic — I can finally focus on writing code, not copy-pasting errors.</p>
                     </div>
                 </div>
 
                 <!-- Uzor's Reply 1 (Right) -->
                 <div class="flex justify-end">
-                    <div class="speech-bubble-right text-left text-white" id="syed-bubble-1">
+                    <div class="testimonial-bubble-right text-left text-white" id="syed-bubble-1">
                         <p><span class="font-bold text-sky-300">Uzor:</span> Setting up the SLOs once saved us from endless manual triaging. No more late-night pings just to push the message through to PCAs</p>
                     </div>
                 </div>
 
                 <!-- Gabor's Reply 2 (Right) -->
                 <div class="flex justify-start">
-                    <div class="speech-bubble-left text-left text-gray-200" id="oscar-bubble">
+                    <div class="testimonial-bubble-left text-left text-gray-200" id="oscar-bubble">
                         <p><span class="font-bold text-emerald-300">Gabor:</span> Obwohl ich nicht zum Backend-Team gehöre, hat die Automatisierung für alle viel Lärm reduziert. Wir erfahren jetzt tatsächlich schneller von echten Problemen.</p>
                     </div>
                 </div>
                 <!-- Syed's Reply 3 (Right) -->
                 <div class="flex justify-end">
-                    <div class="speech-bubble-right text-right text-white" id="syed-bubble-3">
+                    <div class="testimonial-bubble-right text-right text-white" id="syed-bubble-3">
                         <p><span class="font-bold text-sky-300">Kiran:</span> Getting instant alerts about shipment errors has been a game-changer. I can reach out to patients right away and fix issues before they even call us. It makes our support faster and patients much happier.</p>
                     </div>
                 </div>
@@ -1484,6 +1484,7 @@
         const navDots = document.querySelectorAll('#nav-dots .nav-dot');
         
         const chatContainer = document.getElementById('chat-container');
+        const testimonialContainer = document.getElementById('testimonial-container');
         const agendaContainer = document.getElementById('agenda-list');
         const introContainer = document.getElementById('intro-list');
         const whySreContainer = document.getElementById('why-sre-list');
@@ -1498,6 +1499,7 @@
         const availabilityContainer = document.getElementById('availability-list');
 
         const speechBubbles = chatContainer.querySelectorAll('.speech-bubble-left, .speech-bubble-right');
+        const testimonialBubbles = testimonialContainer.querySelectorAll('.testimonial-bubble-left, .testimonial-bubble-right');
         const agendaItems = agendaContainer.querySelectorAll('.agenda-item');
         const introItems = introContainer.querySelectorAll('.intro-item');
         const whySreItems = whySreContainer.querySelectorAll('.why-sre-item');
@@ -1513,6 +1515,7 @@
 
         
         let chatStep = 0;
+        let testimonialStep = 0;
         let agendaStep = 0;
         let introStep = 0;
         let whySreStep = 0;
@@ -1537,6 +1540,20 @@
                     speechBubbles[chatStep].style.animation = 'slideInRight 0.5s forwards';
                 }
                 chatStep++;
+            }
+        }
+
+        // Function to show a single chat bubble
+        function showTestimonialBubble() {
+            if (testimonialStep < testimonialBubbles.length) {
+                testimonialBubbles[testimonialStep].style.opacity = '1';
+                testimonialBubbles[testimonialStep].style.transform = 'translateX(0)';
+                if (testimonialBubbles[testimonialStep].classList.contains('speech-bubble-left')) {
+                    testimonialBubbles[testimonialStep].style.animation = 'slideInLeft 0.5s forwards';
+                } else {
+                    testimonialBubbles[testimonialStep].style.animation = 'slideInRight 0.5s forwards';
+                }
+                testimonialStep++;
             }
         }
 
@@ -1671,6 +1688,14 @@
                 chatStep = 0;
             }
             
+            if (currentSlideId !== 'slide32') {
+                testimonialBubbles.forEach(bubble => {
+                    bubble.style.opacity = '0';
+                    bubble.style.animation = 'none';
+                });
+                testimonialStep = 0;
+            }
+            
             // Reset agenda items for slide 3
             if (currentSlideId !== 'slide3') {
                 agendaItems.forEach(item => {
@@ -1794,6 +1819,8 @@
                 // Re-initialize animations for the new slide if needed
                 if (slideId === 'slide2') {
                     //showChatBubble(); // Show the first bubble immediately
+                } else if (slideId === 'slide32') {
+                    //showTestimonialItem(); // Show the first agenda item immediately
                 } else if (slideId === 'slide3') {
                     //showAgendaItem(); // Show the first agenda item immediately
                 } else if (slideId === 'slide4') {
@@ -1855,6 +1882,8 @@
                 // Custom logic for animating slide 2 and 3
                 if (currentSlideId === 'slide2' && chatStep < speechBubbles.length) {
                     showChatBubble();
+                } else if (currentSlideId === 'slide32' && testimonialStep < testimonialBubbles.length) {
+                    showTestimonialBubble();
                 } else if (currentSlideId === 'slide3' && agendaStep < agendaItems.length) {
                     showAgendaItem();
                 } else if (currentSlideId === 'slide4' && introStep < introItems.length) {
@@ -1896,6 +1925,9 @@
             const urlHash = window.location.hash.substring(1);
             if (urlHash === 'slide2' || (urlHash === '' && slides[1].getBoundingClientRect().top >= 0 && slides[1].getBoundingClientRect().top <= window.innerHeight)) {
                 showChatBubble(); // Show the first chat bubble on page load if on slide 2
+            }
+            if (urlHash === 'slide32' || (urlHash === '' && slides[31].getBoundingClientRect().top >= 0 && slides[31].getBoundingClientRect().top <= window.innerHeight)) {
+                showTestimonialBubble(); // Show the first chat bubble on page load if on slide 2
             }
             if (urlHash === 'slide3' || (urlHash === '' && slides[2].getBoundingClientRect().top >= 0 && slides[2].getBoundingClientRect().top <= window.innerHeight)) {
                 showAgendaItem(); // Show the first agenda item if on slide 3
