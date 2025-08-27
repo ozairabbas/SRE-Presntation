@@ -130,7 +130,18 @@
         h1 {
             line-height: 1.2 !important;
         }
+
+        .agenda-item {
+            opacity: 0;
+            transform: translateX(20px);
+            transition: opacity 0.5s ease-in, transform 0.5s ease-in;
+        }
         
+        .intro-item {
+            opacity: 0;
+            transform: translateX(20px);
+            transition: opacity 0.5s ease-in, transform 0.5s ease-in;
+        }
     </style>
 </head>
 <body class="bg-slate-900 font-sans text-white">
@@ -235,7 +246,7 @@
             </h1>
             <div id="agenda-list" class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 text-left">
                 <!-- Agenda Point 1 -->
-                <div class="bg-gray-800 p-6 rounded-xl shadow-lg transition-shadow duration-300" data-index="0">
+                <div class="bg-gray-800 p-6 rounded-xl shadow-lg transition-shadow duration-300 agenda-item" data-index="0">
                     <div class="flex items-center space-x-4 mb-2">
                         <i data-lucide="info" class="w-8 h-8 text-indigo-400"></i>
                         <h2 class="text-2xl font-bold">Introduction to SRE</h2>
@@ -243,7 +254,7 @@
                     <p class="text-gray-400">What is Site Reliability Engineering and its core purpose?</p>
                 </div>
                 <!-- Agenda Point 2 -->
-                <div class="bg-gray-800 p-6 rounded-xl shadow-lg transition-shadow duration-300" data-index="1">
+                <div class="bg-gray-800 p-6 rounded-xl shadow-lg transition-shadow duration-300 agenda-item" data-index="1">
                     <div class="flex items-center space-x-4 mb-2">
                         <i data-lucide="shield-check" class="w-8 h-8 text-emerald-400"></i>
                         <h2 class="text-2xl font-bold">Why is it important</h2>
@@ -251,7 +262,7 @@
                     <p class="text-gray-400">Understanding the value and benefits of adopting SRE practices.</p>
                 </div>
                 <!-- Agenda Point 5 -->
-                <div class="bg-gray-800 p-6 rounded-xl shadow-lg transition-shadow duration-300" data-index="4">
+                <div class="bg-gray-800 p-6 rounded-xl shadow-lg transition-shadow duration-300 agenda-item" data-index="4">
                     <div class="flex items-center space-x-4 mb-2">
                         <i data-lucide="layout-grid" class="w-8 h-8 text-purple-400"></i>
                         <h2 class="text-2xl font-bold">Guiding principles</h2>
@@ -259,21 +270,21 @@
                     <p class="text-gray-400">The core philosophies and beliefs that drive SRE teams.</p>
                 </div>
                 <!-- Agenda Point 6 -->
-                <div class="bg-gray-800 p-6 rounded-xl shadow-lg transition-shadow duration-300" data-index="5">
+                <div class="bg-gray-800 p-6 rounded-xl shadow-lg transition-shadow duration-300 agenda-item" data-index="5">
                     <div class="flex items-center space-x-4 mb-2">
                         <i data-lucide="book-open-text" class="w-8 h-8 text-sky-400"></i>
                         <h2 class="text-2xl font-bold">Use Case</h2>
                     </div>
                     <p class="text-gray-400">Look at how we are implementing it in Shipment service</p>
                 </div>
-                <div class="bg-gray-800 p-6 rounded-xl shadow-lg transition-shadow duration-300" data-index="5">
+                <div class="bg-gray-800 p-6 rounded-xl shadow-lg transition-shadow duration-300 agenda-item" data-index="5">
                     <div class="flex items-center space-x-4 mb-2">
                         <i data-lucide="footprints" class="w-8 h-8 text-yellow-400"></i>
                         <h2 class="text-2xl font-bold">Next Steps</h2>
                     </div>
                     <p class="text-gray-400">Discuss how we can go about introducing SRE at ZAVA</p>
                 </div>
-                <div class="bg-gray-800 p-6 rounded-xl shadow-lg transition-shadow duration-300" data-index="5">
+                <div class="bg-gray-800 p-6 rounded-xl shadow-lg transition-shadow duration-300 agenda-item" data-index="5">
                     <div class="flex items-center space-x-4 mb-2">
                         <i data-lucide="message-circle-question-mark" class="w-8 h-8 text-red-400"></i>
                         <h2 class="text-2xl font-bold">Q & A</h2>
@@ -293,10 +304,9 @@
             </h1>
 
             <!-- Grid of points -->
-            <div class="grid grid-cols-1 lg:grid-cols-2 gap-8">
-
+            <div id="intro-list" class="grid grid-cols-1 lg:grid-cols-2 gap-8">
                 <!-- Point 1: Definition -->
-                <div class="bg-gray-800 p-8 rounded-2xl shadow-xl border border-gray-700 transition duration-300 transform hover:scale-105 hover:shadow-2xl">
+                <div class="bg-gray-800 p-8 rounded-2xl shadow-xl border border-gray-700 transition duration-300 transform hover:scale-105 hover:shadow-2xl intro-item">
                     <div class="icon-container mb-4 text-emerald-400">
                         <i data-lucide="layers" class="w-12 h-12"></i>
                     </div>
@@ -309,7 +319,7 @@
                 </div>
 
                 <!-- Point 2: Goal -->
-                <div class="bg-gray-800 p-8 rounded-2xl shadow-xl border border-gray-700 transition duration-300 transform hover:scale-105 hover:shadow-2xl">
+                <div class="bg-gray-800 p-8 rounded-2xl shadow-xl border border-gray-700 transition duration-300 transform hover:scale-105 hover:shadow-2xl intro-item">
                     <div class="icon-container mb-4 text-sky-400">
                         <i data-lucide="target" class="w-12 h-12"></i>
                     </div>
@@ -1382,6 +1392,26 @@
             <h2 class="text-2xl sm:text-3xl lg:text-4xl font-semibold text-gray-300">
                 Thank you!
             </h2>
+            <br/>
+            <div class="bg-gray-800 p-8 rounded-2xl shadow-xl border border-gray-700 transition duration-300 transform hover:scale-105 hover:shadow-2xl md:col-span-2">        
+                <div class="flex items-center space-x-4 mb-4">
+                    <i data-lucide="thumbs-up" class="w-12 h-12 text-sky-400"></i> 
+                    <ul class="text-gray-400 space-y-4">    
+                        <li class="flex items-start space-x-4">
+                            <span class="text-amber-400 font-bold">&bull;</span>
+                            <p><i>Jake - For planting the seed, and helping with setting up workloads and the guidence</i></p>
+                        </li>
+                        <li class="flex items-start space-x-4">
+                            <span class="text-amber-400 font-bold">&bull;</span>
+                            <p><i>Oscar - For adding the contexts and helping in initial setup of SLOs for ION services </i></p>
+                        </li>
+                        <li class="flex items-start space-x-4">
+                            <span class="text-amber-400 font-bold">&bull;</span>
+                            <p><i>Uzor - For automating the Shipment service address error alerts, saving engineering time</i></p>
+                        </li>
+                    </ul>
+                </div>
+            </div>
         </div>
     </div>
 
@@ -1392,11 +1422,14 @@
         const slides = document.querySelectorAll('body > div');
         const chatContainer = document.getElementById('chat-container');
         const agendaContainer = document.getElementById('agenda-list');
+        const introContainer = document.getElementById('intro-list');
         const navDots = document.querySelectorAll('#nav-dots .nav-dot');
         const agendaItems = agendaContainer.querySelectorAll('.agenda-item');
+        const introItems = introContainer.querySelectorAll('.intro-item');
         const speechBubbles = chatContainer.querySelectorAll('.speech-bubble-left, .speech-bubble-right');
         
         let agendaStep = 0;
+        let introStep = 0;
         let chatStep = 0;
 
         // Function to show a single chat bubble
@@ -1423,6 +1456,16 @@
             }
         }
 
+        // Function to animate a single intro item
+        function showIntroItem() {
+            if (introStep < introItems.length) {
+                const item = introItems[introStep];
+                item.style.opacity = '1';
+                item.style.transform = 'translateX(0)';
+                introStep++;
+            }
+        }
+
         // Function to reset animation states when navigating to a new slide
         function resetAnimations(currentSlideId) {
             // Reset chat bubbles for slide 2
@@ -1442,6 +1485,16 @@
                 });
                 agendaStep = 0;
             }
+
+            // Reset intro items for slide 3
+            if (currentSlideId !== 'slide4') {
+                introItems.forEach(item => {
+                    item.style.opacity = '0';
+                    item.style.transform = 'translateX(20px)';
+                });
+                introStep = 0;
+            }
+
         }
 
         // Smooth scrolling function with animation logic
@@ -1455,9 +1508,11 @@
 
                 // Re-initialize animations for the new slide if needed
                 if (slideId === 'slide2') {
-                    showChatBubble(); // Show the first bubble immediately
+                    //showChatBubble(); // Show the first bubble immediately
                 } else if (slideId === 'slide3') {
-                    showAgendaItem(); // Show the first agenda item immediately
+                    //showAgendaItem(); // Show the first agenda item immediately
+                } else if (slideId === 'slide4') {
+                    //showIntroItem(); // Show the first intro item immediately
                 }
             }
         }
@@ -1497,6 +1552,8 @@
                     showChatBubble();
                 } else if (currentSlideId === 'slide3' && agendaStep < agendaItems.length) {
                     showAgendaItem();
+                } else if (currentSlideId === 'slide4' && introStep < introItems.length) {
+                    showIntroItem();
                 } else if (currentIndex < slideIds.length - 1) {
                     const nextSlideId = slideIds[currentIndex + 1];
                     scrollToSlide(nextSlideId);
@@ -1517,6 +1574,9 @@
             }
             if (urlHash === 'slide3' || (urlHash === '' && slides[2].getBoundingClientRect().top >= 0 && slides[2].getBoundingClientRect().top <= window.innerHeight)) {
                 showAgendaItem(); // Show the first agenda item if on slide 3
+            }
+            if (urlHash === 'slide4' || (urlHash === '' && slides[3].getBoundingClientRect().top >= 0 && slides[3].getBoundingClientRect().top <= window.innerHeight)) {
+                showIntroItem(); // Show the first intro item if on slide 4
             }
         });
     </script>
