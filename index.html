@@ -155,7 +155,7 @@
             transition: opacity 0.5s ease-in, transform 0.5s ease-in;
         }
 
-        .measuring-risk-item {
+        .managing-risk-item {
             opacity: 0;
             transform: translateX(20px);
             transition: opacity 0.5s ease-in, transform 0.5s ease-in;
@@ -219,7 +219,7 @@
             <li><button onclick="scrollToSlide('slide7')" class="nav-dot" data-slide-id="slide7" title="The Real Cost"></button></li>
             <li><button onclick="scrollToSlide('slide8')" class="nav-dot" data-slide-id="slide8" title="SRE Guiding Principles"></button></li>
             <li><button onclick="scrollToSlide('slide9')" class="nav-dot" data-slide-id="slide9" title="Principle 1: Embracing Risk"></button></li>
-            <li><button onclick="scrollToSlide('slide10')" class="nav-dot" data-slide-id="slide10" title="Measuring Risk"></button></li>
+            <li><button onclick="scrollToSlide('slide10')" class="nav-dot" data-slide-id="slide10" title="Managing Risk"></button></li>
             <li><button onclick="scrollToSlide('slide11')" class="nav-dot" data-slide-id="slide11" title="Principle 2: Service Level Objectives"></button></li>
             <li><button onclick="scrollToSlide('slide12')" class="nav-dot" data-slide-id="slide12" title="Principle 3: Eliminating Toil"></button></li>
             <li><button onclick="scrollToSlide('slide13')" class="nav-dot" data-slide-id="slide13" title="Is Toil Always Bad?"></button></li>
@@ -588,18 +588,18 @@
         </div>
     </div>
 
-    <!-- Slide 10: Measuring Risk -->
+    <!-- Slide 10: managing Risk -->
     <div id="slide10" class="min-h-screen flex items-center justify-center p-4">
         <div class="w-full max-w-6xl text-center md:pr-12">
             <!-- Slide Title -->
             <h1 class="text-4xl sm:text-5xl lg:text-6xl font-bold mb-12 drop-shadow-lg text-transparent bg-clip-text bg-gradient-to-r from-fuchsia-400 to-pink-400">
-                Measuring Risk
+                Managing Risk
             </h1>
 
             <!-- Content -->
-            <div id="measuring-risk-list" class="grid grid-cols-1 md:grid-cols-2 gap-8 text-left">
+            <div id="managing-risk-list" class="grid grid-cols-1 md:grid-cols-2 gap-8 text-left">
                 <!-- Card 1: Time-based availability -->
-                <div class="bg-gray-800 p-8 rounded-2xl shadow-xl border border-gray-700 transition duration-300 transform hover:scale-105 hover:shadow-2xl measuring-risk-item">
+                <div class="bg-gray-800 p-8 rounded-2xl shadow-xl border border-gray-700 transition duration-300 transform hover:scale-105 hover:shadow-2xl managing-risk-item">
                     <div class="flex items-center space-x-4 mb-4">
                         <i data-lucide="scale" class="w-12 h-12 text-teal-400"></i>
                         <h2 class="text-2xl font-bold text-gray-200">Maximizing Stability</h2>
@@ -608,7 +608,7 @@
                 </div>
 
                 <!-- Card 2: Aggregate availability -->
-                <div class="bg-gray-800 p-8 rounded-2xl shadow-xl border border-gray-700 transition duration-300 transform hover:scale-105 hover:shadow-2xl measuring-risk-item">
+                <div class="bg-gray-800 p-8 rounded-2xl shadow-xl border border-gray-700 transition duration-300 transform hover:scale-105 hover:shadow-2xl managing-risk-item">
                     <div class="flex items-center space-x-4 mb-4">
                         <i data-lucide="arrow-right-left" class="w-12 h-12 text-blue-400"></i>
                         <h2 class="text-2xl font-bold text-gray-200">Opportunity Cost</h2>
@@ -617,7 +617,7 @@
                 </div>
 
                 <!-- Card 3: Identifying the Risk Tolerance -->
-                <div class="bg-gray-800 p-8 rounded-2xl shadow-xl border border-gray-700 transition duration-300 transform hover:scale-105 hover:shadow-2xl md:col-span-2 measuring-risk-item">
+                <div class="bg-gray-800 p-8 rounded-2xl shadow-xl border border-gray-700 transition duration-300 transform hover:scale-105 hover:shadow-2xl md:col-span-2 managing-risk-item">
                     <div class="flex items-center space-x-4 mb-4">
                         <i data-lucide="badge-dollar-sign" class="w-12 h-12 text-amber-400"></i>
                         <h2 class="text-2xl font-bold text-gray-200">The cost of redundant machine/compute resources to improve reliability</h2>
@@ -1497,7 +1497,7 @@
         const introContainer = document.getElementById('intro-list');
         const whySreContainer = document.getElementById('why-sre-list');
         const srePrinciplesContainer = document.getElementById('sre-principles-list');
-        const measuringRiskContainer = document.getElementById('measuring-risk-list');
+        const managingRiskContainer = document.getElementById('managing-risk-list');
         const sloContainer = document.getElementById('slo-list');
         const toilContainer = document.getElementById('toil-list');
         const monitorContainer = document.getElementById('monitor-list');
@@ -1512,7 +1512,7 @@
         const introItems = introContainer.querySelectorAll('.intro-item');
         const whySreItems = whySreContainer.querySelectorAll('.why-sre-item');
         const srePrinciplesItems = srePrinciplesContainer.querySelectorAll('.sre-principles-item');
-        const measuringRiskItems = measuringRiskContainer.querySelectorAll('.measuring-risk-item');
+        const managingRiskItems = managingRiskContainer.querySelectorAll('.managing-risk-item');
         const sloItems = sloContainer.querySelectorAll('.slo-item');
         const toilItems = toilContainer.querySelectorAll('.toil-item');
         const monitorItems = monitorContainer.querySelectorAll('.monitor-item');
@@ -1528,7 +1528,7 @@
         let introStep = 0;
         let whySreStep = 0;
         let srePrinciplesStep = 0;
-        let measuringRiskStep = 0;
+        let managingRiskStep = 0;
         let sloStep = 0;
         let toilStep = 0;
         let monitorStep = 0;
@@ -1605,13 +1605,13 @@
             }
         }        
 
-        // Function to animate a single Measuring Risk item
-        function showMeasuringRiskItem() {
-            if (measuringRiskStep < measuringRiskItems.length) {
-                const item = measuringRiskItems[measuringRiskStep];
+        // Function to animate a single managing Risk item
+        function showmanagingRiskItem() {
+            if (managingRiskStep < managingRiskItems.length) {
+                const item = managingRiskItems[managingRiskStep];
                 item.style.opacity = '1';
                 item.style.transform = 'translateX(0)';
-                measuringRiskStep++;
+                managingRiskStep++;
             }
         }        
 
@@ -1742,11 +1742,11 @@
 
             // Reset intro items for slide 10
             if (currentSlideId !== 'slide10') {
-                measuringRiskItems.forEach(item => {
+                managingRiskItems.forEach(item => {
                     item.style.opacity = '0';
                     item.style.transform = 'translateX(20px)';
                 });
-                measuringRiskStep = 0;
+                managingRiskStep = 0;
             }
 
             // Reset intro items for slide 11
@@ -1838,7 +1838,7 @@
                 } else if (slideId === 'slide8') {
                     //showSrePrinciplesItem(); // Show the first why sre item immediately
                 } else if (slideId === 'slide10') {
-                    //showMeasuringRiskItem(); // Show the first why measuring risk immediately
+                    //showmanagingRiskItem(); // Show the first why managing risk immediately
                 } else if (slideId === 'slide11') {
                     //showSloItem(); // Show the first why slo immediately
                 } else if (slideId === 'slide14') {
@@ -1900,8 +1900,8 @@
                     showWhySreItem();
                 } else if (currentSlideId === 'slide8' && srePrinciplesStep < srePrinciplesItems.length) {
                     showSrePrinciplesItem();
-                } else if (currentSlideId === 'slide10' && measuringRiskStep < measuringRiskItems.length) {
-                    showMeasuringRiskItem();
+                } else if (currentSlideId === 'slide10' && managingRiskStep < managingRiskItems.length) {
+                    showmanagingRiskItem();
                 } else if (currentSlideId === 'slide11' && sloStep < sloItems.length) {
                     showSloItem();
                 } else if (currentSlideId === 'slide14' && toilStep < toilItems.length) {
@@ -1950,7 +1950,7 @@
                 showSrePrinciplesItem(); // Show the first SRE Principles item if on slide 8
             }
             if (urlHash === 'slide10' || (urlHash === '' && slides[9].getBoundingClientRect().top >= 0 && slides[9].getBoundingClientRect().top <= window.innerHeight)) {
-                showMeasuringRiskItem(); // Show the first Measuring Risk item if on slide 10
+                showmanagingRiskItem(); // Show the first managing Risk item if on slide 10
             }
             if (urlHash === 'slide11' || (urlHash === '' && slides[10].getBoundingClientRect().top >= 0 && slides[10].getBoundingClientRect().top <= window.innerHeight)) {
                 showSloItem(); // Show the first slo item if on slide 11
