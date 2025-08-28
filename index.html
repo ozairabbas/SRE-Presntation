@@ -921,9 +921,7 @@
                         <i data-lucide="circle-gauge" class="w-12 h-12 text-amber-400"></i>
                         <h2 class="text-2xl font-bold text-amber-200">Speed</h2>
                     </div>
-                    <p class="text-gray-400">Certain tasks, such as finding and fixing bugs in code, can take a human a great deal of time. Automated software systems have the ability to monitor huge swathes of data, and can often detect errors more quickly than humans through advanced pattern recognition and other tools. Fixes can be applied just as quickly, often without any human involvement.
-
-                    </p>
+                    <p class="text-gray-400">If automation runs regularly and successfully enough, the result is a reduced mean time to repair (MTTR) for those common faults. You can then spend your time on other tasks instead, thereby achieving increased developer velocity because you don’t have to spend time either preventing a problem or (more commonly) cleaning up after it.</p>
                 </div>
             </div>
         </div>
@@ -1412,7 +1410,7 @@
                 <!-- Gabor's Reply 2 (Right) -->
                 <div class="flex justify-start">
                     <div class="testimonial-bubble-left text-left text-gray-200" id="oscar-bubble">
-                        <p><span class="font-bold text-emerald-300">Gabor:</span> Obwohl ich nicht zum Backend-Team gehöre, hat die Automatisierung für alle viel Lärm reduziert. Wir erfahren jetzt tatsächlich schneller von echten Problemen.</p>
+                        <p><span class="font-bold text-emerald-300">Gabor:</span> Auch wenn ich nicht zum fantastischen Backend-Team gehöre, hat die Automatisierung für alle viel Lärm reduziert. Wir erfahren jetzt tatsächlich schneller von echten Problemen.</p>
                     </div>
                 </div>
                 <!-- Syed's Reply 3 (Right) -->
@@ -1432,52 +1430,48 @@
         </div>
     </div>    
 
-<!-- Slide 12: Principle 3: Eliminating Toil -->
-<div id="slide33" class="min-h-screen flex items-center justify-center p-4">
-    <div class="w-full max-w-6xl text-center md:pr-12">
-        <!-- Slide Title -->
-        <h1 class="text-4xl sm:text-5xl lg:text-6xl font-bold mb-12 drop-shadow-lg text-transparent bg-clip-text bg-gradient-to-r from-fuchsia-400 to-pink-400">
-            Next Steps
-        </h1>
+    <!-- Slide 12: Principle 3: Eliminating Toil -->
+    <div id="slide33" class="min-h-screen flex items-center justify-center p-4">
+        <div class="w-full max-w-6xl text-center md:pr-12">
+            <!-- Slide Title -->
+            <h1 class="text-4xl sm:text-5xl lg:text-6xl font-bold mb-12 drop-shadow-lg text-transparent bg-clip-text bg-gradient-to-r from-fuchsia-400 to-pink-400">
+                Next Steps
+            </h1>
 
-        <!-- Content -->
-        <div class="grid grid-cols-1 md:grid-cols-2 gap-8 text-left">
-            <!-- Card 3: Identifying the Risk Tolerance -->
-            <div class="bg-gray-800 p-8 rounded-2xl shadow-xl border border-gray-700 transition duration-300 transform hover:scale-105 hover:shadow-2xl md:col-span-2">
-                <div class="flex items-center space-x-4 mb-4">
-                    <i data-lucide="lightbulb" class="w-12 h-12 text-amber-400"></i> 
-                    <ul class="text-gray-400 space-y-4">
-                        <li class="flex items-start space-x-4">
-                            <span class="text-amber-400 font-bold">&bull;</span>
-                            <p>Agree on SLOs among product|engineering within each squad</p>
-                        </li>
-                        <li class="flex items-start space-x-4">
-                            <span class="text-amber-400 font-bold">&bull;</span>
-                            <p>Nominate an engineer from each squad to play the role of SRE</p>
-                        </li>
-                        <li class="flex items-start space-x-4">
-                            <span class="text-amber-400 font-bold">&bull;</span>
-                            <p>SRE engineer to work 50% of their time on SRE activities</p>
-                        </li>
-                        <li class="flex items-start space-x-4">
-                            <span class="text-amber-400 font-bold">&bull;</span>
-                            <p>Agree on standards and start implemnting it one service at a time</p>
-                        </li>
-                        <li class="flex items-start space-x-4">
-                            <span class="text-amber-400 font-bold">&bull;</span>
-                            <p>Organise weekly meetings to check on progress and plan work for the following week</p>
-                        </li>
-                        <li class="flex items-start space-x-4">
-                            <span class="text-amber-400 font-bold">&bull;</span>
-                            <p>Create SLOs for new APIs as a mandatory deliverable (E.g. HIMS UK CaaS)</p>
-                        </li>
-                    </ul>
+            <!-- Content -->
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-8 text-left">
+                <!-- Card 3: Identifying the Risk Tolerance -->
+                <div class="bg-gray-800 p-8 rounded-2xl shadow-xl border border-gray-700 transition duration-300 transform hover:scale-105 hover:shadow-2xl md:col-span-2">
+                    <div class="flex items-center space-x-4 mb-4">
+                        <i data-lucide="lightbulb" class="w-12 h-12 text-amber-400"></i> 
+                        <ul class="text-gray-400 space-y-4">
+                            <li class="flex items-start space-x-4">
+                                <span class="text-amber-400 font-bold">&bull;</span>
+                                <p>Agree on standards and start implemnting it one service at a time</p>
+                            </li>
+                            <li class="flex items-start space-x-4">
+                                <span class="text-amber-400 font-bold">&bull;</span>
+                                <p>Agree on SLOs among product|engineering within each squad</p>
+                            </li>
+                            <li class="flex items-start space-x-4">
+                                <span class="text-amber-400 font-bold">&bull;</span>
+                                <p>Organise bi-weekly meetings to check on progress and plan work based on SLOs that are being breached or needs improvement</p>
+                            </li>
+                            <li class="flex items-start space-x-4">
+                                <span class="text-amber-400 font-bold">&bull;</span>
+                                <p>Observability first approach, create SLOs for new APIs as a mandatory deliverable (E.g. HIMS UK CaaS)</p>
+                            </li>
+                            <li class="flex items-start space-x-4">
+                                <span class="text-amber-400 font-bold">&bull;</span>
+                                <p>any more?</p>
+                            </li>
+                        </ul>
+                    </div>
+                    
                 </div>
-                
             </div>
         </div>
-    </div>
-</div> 
+    </div> 
 
     <!-- Slide 1: Title Slide -->
     <div id="slide34" class="min-h-screen flex items-center justify-center p-4">
@@ -1492,7 +1486,7 @@
             <div class="bg-gray-800 p-8 rounded-2xl shadow-xl border border-gray-700 transition duration-300 transform hover:scale-105 hover:shadow-2xl md:col-span-2">        
                 <div class="flex items-center space-x-4 mb-4">
                     <i data-lucide="thumbs-up" class="w-12 h-12 text-sky-400"></i> 
-                    <ul class="text-gray-400 space-y-4">    
+                    <ul class="text-gray-400 space-y-4 text-left">    
                         <li class="flex items-start space-x-4">
                             <span class="text-amber-400 font-bold">&bull;</span>
                             <p><i>Jake - For planting the seed, and helping with setting up workloads and the guidence</i></p>
