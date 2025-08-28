@@ -155,7 +155,7 @@
             transition: opacity 0.5s ease-in, transform 0.5s ease-in;
         }
 
-        .managing-risk-item {
+        .managing-risk-item {x
             opacity: 0;
             transform: translateX(20px);
             transition: opacity 0.5s ease-in, transform 0.5s ease-in;
@@ -271,28 +271,45 @@
                 <!-- CTO's Message (Left) -->
                 <div class="flex justify-start">
                     <div class="speech-bubble-left text-left text-gray-200" id="eike-bubble">
-                        <p><span class="font-bold text-emerald-300">CTO:</span> Are we looking into doing something about the "address too long" errors - they seem to happen multiple times a day now?</p>
+                        <p><span class="font-bold text-emerald-300">Eike:</span> @Ryan @syed are we looking into doing something about the "address too long" errors - they seem to happen multiple times a day now?</p>
                     </div>
                 </div>
 
                 <!-- Syed's Reply 1 (Right) -->
                 <div class="flex justify-end">
                     <div class="speech-bubble-right text-right text-white" id="syed-bubble-1">
-                        <p><span class="font-bold text-sky-300">Engineer:</span> We have a 99% reliable service. We had 93 errors in the past month and 26,200 successful requests.</p>
+                        <p><span class="font-bold text-yellow-300">Syed:</span> We have a 99% reliable service. We had 93 errors in the past month and 26,200 successful requests.</p>
                     </div>
                 </div>
 
-                <!-- Syed's Reply 2 (Right) -->
                 <div class="flex justify-end">
                     <div class="speech-bubble-right text-right text-white" id="syed-bubble-2">
                         <p>Out of the 93 errors, 50 were related to a third party incident.</p>
                     </div>
                 </div>
 
+                <div class="flex justify-start">
+                    <div class="speech-bubble-left text-left text-gray-200" id="eike-bubble">
+                        <p><span class="font-bold text-emerald-300">Eike:</span> if each of those just took 10 minutes of dev time - that's 2 full days of dev time. over a year that's more than a month!                        </p>
+                    </div>
+                </div>
+
                 <!-- Syed's Reply 3 (Right) -->
                 <div class="flex justify-end">
                     <div class="speech-bubble-right text-right text-white" id="syed-bubble-3">
-                        <p>We can work towards increasing our reliability to 99.99%.</p>
+                        <p><span class="font-bold text-yellow-300">Syed:</span> We can work towards increasing our reliability to 99.99%.</p>
+                    </div>
+                </div>
+                
+                <div class="flex justify-end">
+                    <div class="speech-bubble-right text-right text-white" id="syed-bubble-1">
+                        <p>@Ryan can we prioritise this?</p>
+                    </div>
+                </div>
+
+                <div class="flex justify-start">
+                    <div class="speech-bubble-left text-left text-gray-200" id="eike-bubble">
+                        <p><span class="font-bold text-red-300">Ryan:</span> Okay, for next week. This week is packed already!                        </p>
                     </div>
                 </div>
             </div>
@@ -648,12 +665,12 @@
 
             <!-- Content -->
             <div id="slo-list" class="grid grid-cols-1 md:grid-cols-2 gap-8 text-left">
-                <div class="bg-gray-800 p-6 rounded-xl shadow-lg transition-shadow duration-300 slo-item" data-index="0">
+                <div class="bg-gray-800 p-6 rounded-xl shadow-lg transition-shadow duration-300 slo-item" data-index="4">
                     <div class="flex items-center space-x-4 mb-2">
-                        <i data-lucide="info" class="w-8 h-8 text-indigo-400"></i>
-                        <h2 class="text-2xl font-bold">Service Level Agreement (SLA)</h2>
+                        <i data-lucide="layout-grid" class="w-8 h-8 text-purple-400"></i>
+                        <h2 class="text-2xl font-bold">Service Level Indicator (SLI)</h2>
                     </div>
-                    <p class="text-gray-400">An explicit or implicit contract with your users that includes consequences of meeting (or missing) the SLOs they contain.</p>
+                    <p class="text-gray-400">A carefully defined quantitative measure of some aspect of the level of service that is provided. This may be latency, availability or error rates.</p>
                 </div>
                 <!-- Agenda Point 2 -->
                 <div class="bg-gray-800 p-6 rounded-xl shadow-lg transition-shadow duration-300 slo-item" data-index="1">
@@ -665,12 +682,12 @@
                     </p>
                 </div>
                 <!-- Agenda Point 5 -->
-                <div class="bg-gray-800 p-6 rounded-xl shadow-lg transition-shadow duration-300 slo-item" data-index="4">
+                <div class="bg-gray-800 p-6 rounded-xl shadow-lg transition-shadow duration-300 slo-item" data-index="0">
                     <div class="flex items-center space-x-4 mb-2">
-                        <i data-lucide="layout-grid" class="w-8 h-8 text-purple-400"></i>
-                        <h2 class="text-2xl font-bold">Service Level Indicator (SLI)</h2>
+                        <i data-lucide="info" class="w-8 h-8 text-indigo-400"></i>
+                        <h2 class="text-2xl font-bold">Service Level Agreement (SLA)</h2>
                     </div>
-                    <p class="text-gray-400">A carefully defined quantitative measure of some aspect of the level of service that is provided. This may be latency, availability or error rates.</p>
+                    <p class="text-gray-400">An explicit or implicit contract with your users that includes consequences of meeting (or missing) the SLOs they contain.</p>
                 </div>
                 <!-- Agenda Point 6 -->
                 <div class="bg-gray-800 p-6 rounded-xl shadow-lg transition-shadow duration-300 slo-item" data-index="5">
@@ -1423,11 +1440,11 @@
                     <ul class="text-gray-400 space-y-4">
                         <li class="flex items-start space-x-4">
                             <span class="text-amber-400 font-bold">&bull;</span>
-                            <p>Create a SRE Guild</p>
+                            <p>Agree on SLOs among product|engineering within each squad</p>
                         </li>
                         <li class="flex items-start space-x-4">
                             <span class="text-amber-400 font-bold">&bull;</span>
-                            <p>Nominate an engineer from each squad to be part of the guild</p>
+                            <p>Nominate an engineer from each squad to play the role of SRE</p>
                         </li>
                         <li class="flex items-start space-x-4">
                             <span class="text-amber-400 font-bold">&bull;</span>
@@ -1440,14 +1457,6 @@
                         <li class="flex items-start space-x-4">
                             <span class="text-amber-400 font-bold">&bull;</span>
                             <p>Organise weekly meetings to check on progress and plan work for the following week</p>
-                        </li>
-                        <li class="flex items-start space-x-4">
-                            <span class="text-amber-400 font-bold">&bull;</span>
-                            <p>Hire an SRE engineer to lead the SRE practice in ZAVA</p>
-                        </li>
-                        <li class="flex items-start space-x-4">
-                            <span class="text-amber-400 font-bold">&bull;</span>
-                            <p>Hire an SRE engineer to lead the SRE practice in ZAVA</p>
                         </li>
                         <li class="flex items-start space-x-4">
                             <span class="text-amber-400 font-bold">&bull;</span>
